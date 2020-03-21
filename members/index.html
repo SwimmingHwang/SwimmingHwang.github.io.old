@@ -1,43 +1,3 @@
-<<<<<<< HEAD
----
-layout: page
----
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post-meta" style="margin-bottom:5px">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	<div class="notepad-index-post-tags" style="">
-		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
-	</div>
-</div>
-<hr>
-{% endfor %}
-
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
-
-=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,18 +7,18 @@ layout: page
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Welcome!">
-	<meta property="og:title" content="Young's Blog" />
+	<meta property="og:title" content="subtitle" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:4000//project-pages//" />
+<meta property="og:url" content="http://localhost:4000//project-pages//members/" />
 <meta property="og:image" content="http://localhost:4000//project-pages/img/home_bg2.png">
 	
 	
 
 	<link rel='shortcut icon' type='image/png' href='/project-pages/favicon.png' />
 
-    <title>Young's Blog</title>
+    <title>subtitle - Young's Blog</title>
 
-    <link rel="canonical" href="http://localhost:4000/project-pages/">
+    <link rel="canonical" href="http://localhost:4000/project-pages/members/">
 	
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://localhost:4000/project-pages/css/bootstrap.min.css">
@@ -182,12 +142,10 @@ layout: page
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading" style="padding: 75px 0">
-					
 						
-						
-                    <h1>Young's Blog</h1>
+                    <h1>subtitle</h1>
                     <hr class="small">
-                    <span class="subheading">Welcome!</span>
+                    <span class="subheading">봉뜌기</span>
                 </div>
             </div>
         </div>
@@ -198,11 +156,61 @@ layout: page
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			
+			<!--
+<hr>
 
-<!-- Pager -->
+ 
 
+	<img src="https://avatars1.githubusercontent.com/u/7231251?v=3&s=460" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; width:150px !important">
+	
+	<h1>Ahmet Cecen</h1>
+	
+	<h2>Data Scientist / Materials Informatics</h2>
+	
+	 
+	<span class="social-share-googleplus"><a href="https://github.com/ahmetcecen" title="Github"><img src="/project-pages/img/icons/github-icon.png" style="height:20px">Github</a></span> 
+	
+	
+	<span class="social-share-googleplus"><a href="https://plus.google.com/+AhmetCecen-GPlus" title="Google Plus"><img src="/project-pages/img/icons/gplus-icon.png" style="height:20px">Google Plus</a></span>
+	
+	
+	<span class="social-share-googleplus"><a href="http://ahmetcecen.github.io/" title="Google Plus"><img src="/project-pages/img/icons/url-icon.png" style="height:20px">Website</a></span>
+	
+	
+	</br>
 
+	 
+	Ahmet Cecen is currently pursuing a PhD in Computational Science and Engineering at Georgia Institute of Technology.  He earned a bachelor’s degree in Mechanical Engineering at Drexel University. Ahmet has been doing research in the fields of computational materials science and materials informatics for the past 6 years, throughout his undergraduate and graduate studies. His current research focus is on leveraging statistical analysis and machine learning tools to solve big data analytics problems in materials science.
+	
+	
+	<hr>
+
+ 
+
+	<img src="https://avatars0.githubusercontent.com/u/4368625?v=3&s=460" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; width:150px !important">
+	
+	<h1>David Brough</h1>
+	
+	<h2>Data Scientist / Materials Informatics</h2>
+	
+	 
+	<span class="social-share-googleplus"><a href="https://github.com/davidbrough1" title="Github"><img src="/project-pages/img/icons/github-icon.png" style="height:20px">Github</a></span> 
+	
+	
+	
+	<span class="social-share-googleplus"><a href="http://davidbrough.net" title="Google Plus"><img src="/project-pages/img/icons/url-icon.png" style="height:20px">Website</a></span>
+	
+	
+	</br>
+
+	 
+	David is a PhD student in the School of Computational Science and Engineering at Georgia Institute of Technology. David earned a Master’s degree in experimental condensed matter physics at Brigham Young University where he fabricated and characterized thin-films and carbon nanotubes used in nanostructured high capacity battery electrodes and in X-ray windows. As an undergraduate, David studied theoretical physics and researched the evolution of chaotic systems using neural networks at Westminster College. He is a trainee in the NSF IGERT FLAMEL program, and one of the lead developers on PyMKS materials informatics toolkit.
+	
+	
+	<hr>
+
+ 
+-->
 
 		</div>
 	</div>
@@ -252,4 +260,3 @@ layout: page
 </body>
 
 </html>
->>>>>>> fix: Edit .gitignore

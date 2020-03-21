@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 ---
 ---
+=======
+>>>>>>> fix: Edit .gitignore
 jQuery(function() {
   // Initialize lunr with the fields to be searched, plus the boost.
   window.idx = lunr(function () {
@@ -11,7 +14,11 @@ jQuery(function() {
   });
 
   // Get the generated search_data.json file so lunr.js can search it locally.
+<<<<<<< HEAD
   window.data = $.getJSON('{{ site.baseurl }}/search/search_data.json');
+=======
+  window.data = $.getJSON('/project-pages/search/search_data.json');
+>>>>>>> fix: Edit .gitignore
 
   // Wait for the data to load and add it to lunr
   window.data.then(function(loaded_data){
