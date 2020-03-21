@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ---
 ---
+=======
+>>>>>>> fix: Edit .gitignore
 =======
 >>>>>>> fix: Edit .gitignore
 jQuery(function() {
@@ -15,7 +18,11 @@ jQuery(function() {
 
   // Get the generated search_data.json file so lunr.js can search it locally.
 <<<<<<< HEAD
+<<<<<<< HEAD
   window.data = $.getJSON('{{ site.baseurl }}/search/search_data.json');
+=======
+  window.data = $.getJSON('/project-pages/search/search_data.json');
+>>>>>>> fix: Edit .gitignore
 =======
   window.data = $.getJSON('/project-pages/search/search_data.json');
 >>>>>>> fix: Edit .gitignore

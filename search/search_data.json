@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ---
 layout: null
 ---
@@ -27,6 +28,8 @@ layout: null
     {% endif %}
   {% endfor %}
 =======
+=======
+>>>>>>> fix: Edit .gitignore
 {
   
 
@@ -117,5 +120,8 @@ layout: null
   
     
   
+<<<<<<< HEAD
+>>>>>>> fix: Edit .gitignore
+=======
 >>>>>>> fix: Edit .gitignore
 }
