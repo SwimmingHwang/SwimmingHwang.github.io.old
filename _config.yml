@@ -7,7 +7,7 @@ url: "https://swimminghwang.github.io"
 
 
 # Secondary Parameters
-baseurl: "/project-pages"
+baseurl: "project-pages"
 header-img: img/home_bg2.png
 headercolor: "#FFFFFF"
 logo: #/project-pages/img/logos/Project-Pages-New-Logo-Inverted.png
