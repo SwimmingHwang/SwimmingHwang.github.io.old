@@ -2,6 +2,6 @@
 layout: project
 title: "project"
 description: "팔도비빔면"
-header-img: "img/home_bg2.png"
+header-img: "img/blogbg.jpg"
 category: project1
 ---
