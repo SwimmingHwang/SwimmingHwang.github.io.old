@@ -7,6 +7,7 @@ header-img: "img/blogbg.jpg"
 
 <center><h2>Sooyoung Hwang</h2></center>
 
+![profile] (http:localhost:4000/img/bongsook.png){: width="100" height="100"}
 
 
 ### 1. Interest
