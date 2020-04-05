@@ -4,6 +4,10 @@
   padding: 100px 0 50px;
   color: #FFFFFF;
 }
+.center {
+  display: block;
+  margin: auto;
+}
 body {
   /* font-family: 'Lora', 'Times New Roman', serif; */
   font-size: 14px;
