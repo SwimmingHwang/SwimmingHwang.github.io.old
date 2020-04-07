@@ -1,0 +1,38 @@
+---
+layout:     post
+title:      모두의 딥러닝 - Lecture 00 정리
+author:     Soo-young Hwang
+tags: 		Deep-Learning
+subtitle:  	Lec00 - Machine / Deep Learning 수업의 개요와 일정
+category:  project1
+---
+
+## 서론
+
+오늘부터 주 1회 모두의 딥러닝 강의 + 예제 한 문제를 할 거에요   
+포스트 내용은 강의 요약과 직접 해 본 예제를 작성할거에요
+
+## 본론
+
+
+
+### 강의 요약
+
+- 약 10분 정도의 강의 + Programming tutorial using tensorflow
+- 스케쥴   
+    • Machine learning basic concepts   
+    • Linear regression   
+    • Logistic regression (classification)   
+    • Multivariable (Vector) linear/logistic regression    
+    • Neural networks   
+    • Deep learning   
+            - CNN    
+            - RNN   
+            - Bidirectional Neural networks   
+
+## 결론
+
+## references
+감사합니다   
+https://hunkim.github.io/ml/     
+https://hunkim.github.io/ml/lec0.pdf

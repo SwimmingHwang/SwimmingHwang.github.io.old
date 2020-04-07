@@ -1,4 +1,4 @@
----
+<!-- ---
 layout:     plysurface
 title:      New Surface Visualization
 author:     Ahmet Cecen
@@ -7,4 +7,4 @@ subtitle:   Some Short Description of the Visualization
 
 plydata: 	/ply/ChunkColoredWeb.ply
 ---
-
+ -->
