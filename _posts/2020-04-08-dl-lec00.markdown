@@ -7,16 +7,15 @@ subtitle:  	Lec00 - Machine / Deep Learning 수업의 개요와 일정
 category:  project1
 ---
 
-## 서론
+### 서론
 
-오늘부터 주 1회 모두의 딥러닝 강의 + 예제 한 문제를 할 거에요   
-포스트 내용은 강의 요약과 직접 해 본 예제를 작성할거에요
+오늘부터 주 1회 모두의 딥러닝 강의 + 예제 한 문제를 할 예정입니다.      
+포스트 내용은 강의 요약과 직접 해 본 예제를 작성합니다.    
+참고로, 본 포스트는 Intro 강의라 예제가 없습니다.   
 
-## 본론
+### 본론
 
-
-
-### 강의 요약
+#### 강의 요약
 
 - 약 10분 정도의 강의 + Programming tutorial using tensorflow
 - 스케쥴   
@@ -30,9 +29,9 @@ category:  project1
             - RNN   
             - Bidirectional Neural networks   
 
-## 결론
+### 결론
+Lec01 머신러닝의 기초 개념부터 열심히 들어야지!!
 
-## references
-감사합니다   
-https://hunkim.github.io/ml/     
-https://hunkim.github.io/ml/lec0.pdf
+### references
+[참고 사이트 1](https://hunkim.github.io/ml/)     
+[참고 pdf 파일](https://hunkim.github.io/ml/lec0.pdf)

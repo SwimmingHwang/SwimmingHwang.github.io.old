@@ -56,7 +56,7 @@ subtitle:  	Some Short Description of Post
 
 Hold your pointer clicked over the image to expand the view.
 
-![Description](http://projectpages.github.io/project-pages/img/Logo_Fairy_Tail_right.png)
+![Description](http://swimminghwang.github.io/project-pages/img/githubpages-ga1.png)
 
 ## Code
 
