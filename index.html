@@ -2,7 +2,7 @@
 layout: page
 ---
 {% for post in paginator.posts %}
-{% if post.subtitle %}
+{% if post.title %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">            {{ post.title }}
