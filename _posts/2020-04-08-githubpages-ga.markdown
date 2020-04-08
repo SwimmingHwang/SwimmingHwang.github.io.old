@@ -10,7 +10,8 @@ category:  project1
 ### 서론
 최근에 `Github pages`와 `jekyll`을 이용하여 블로그를 개설했습니다.    
 네이버에서 블로그를 할 땐 유입 분석, 사용자 분석 등 다양한 통계 기능 서비스를 제공했었습니다.    
-몇 명이 이 글을 봤는지를 보는 것이 저한텐 동기부여가 되었기 때문에!    
+하지만 github pages는 이를 제공하지 않기에 Google analytics를 이용해야 합니다.    
+몇 명이 이 글을 봤는지를 보는 것이 저한텐 동기부여가 되었기 때문에,       
 저 또한, 제 **github blog에 Google Analytics(a.k.a GA)를 적용**하고자 합니다.   
 
 
