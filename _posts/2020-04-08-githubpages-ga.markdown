@@ -32,7 +32,7 @@ g-analytics: 추적 ID
 간단
 
 ### 결론
-![Description](http://swimminghwang.github.io/project-pages/img/githubpages-ga1.png)
+![Description](http://swimminghwang.github.io/img/githubpages-ga1.png)
 
 ### references
 [inasie.github.io](https://inasie.github.io/it%EC%9D%BC%EB%B0%98/1/)
