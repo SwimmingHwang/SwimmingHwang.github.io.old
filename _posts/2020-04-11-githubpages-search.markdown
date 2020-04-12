@@ -7,10 +7,6 @@ tags: 		Github-pages
 category:  project1
 ---
 
-## Contents 
-* TOC
-{:toc}
-
 ### 서론
 [지난 포스트](https://swimminghwang.github.io/project1/2020/04/08/githubpages-ga/)에서 내 블로그의 방문자 수 혹은 방문자 유입을 분석해주는 `Google Analytics`를 적용해 보았습니다.    
 `Github-pages`를 이용한 블로그는 포털사이트에 검색해도 안 나오더라구요...    
@@ -143,23 +139,39 @@ Sitemap: https://본인의 블로그 주소/sitemap.xml
 [Google Search Console](https://search.google.com/search-console/about?hl=ko&utm_source=wmx&utm_medium=wmx-welcome)
 도메인 말고 URL 접두어를 선택하여 블로그 주소를 입력하면 됩니다.   
 Google 애널리틱스를 적용해두었더니 소유권이 자동으로 확인되었습니다.   
+![gs2](https://swimmingHwang.github.io/img/gs2.png)
 적용하지 않았다면 [Google 애널리틱스 적용하기](https://swimminghwang.github.io/project1/2020/04/08/githubpages-ga/) 를 참고하여 적용하거나 [참고 블로그](https://honbabzone.com/jekyll/start-gitHubBlog/#step-9-%EA%B5%AC%EA%B8%80-%EA%B2%80%EC%83%89-%EA%B0%80%EB%8A%A5%ED%95%98%EA%B2%8C-%ED%95%98%EA%B8%B0) 를 통해 소유권 확인 과정을 거치시면 됩니다.   
-
 다시 [Google Search Console](https://search.google.com/search-console/about?hl=ko&utm_source=wmx&utm_medium=wmx-welcome) 에 접속하여 좌측에 Sitemaps 버튼을 눌러 `sitemap.xml`을 입력하여 등록하면 됩니다. 
 ![gsc](https://swimmingHwang.github.io/img/gsc.png)
 
 
 **2. Naver**   
-[Naver Search Advisor](https://searchadvisor.naver.com/)
+[Naver Search Advisor](https://searchadvisor.naver.com/) 들어가서 로그인 후 오른쪽 상단에 **웹마스터 도구** 로 들어가서 사이트 등록을 진행합니다.   
+소유권 인증을 받기 위해 html파일을 다운받고 루트디렉터리에 업로드하여 인증을 받습니다.   
+그다음 좌측 요청 -> RSS 제출을 눌러 앞서 작성한 `feed.xml` 을 제출합니다.   
 
 **3. Daum**   
-[]
+[Daum 검색 등록](https://register.search.daum.net/index.daum) 들어가서 url을 등록합니다.   
+(RSS가 있었다고 하는데 안 보여요ㅜㅜ)
 
 
 
 ### 결론
+이로써 블로그 시작 준비를 한 ..70% 완료한 것 같습니댜햐햐 
+남은 할일 : 
+1. 카테고리랑 태그 구분하기
+2. 본문 속 title css 최적화하기
+3. disqus 잘 되는지 확인하기 
+4. 포털사이트 검색 잘 되는지 확인하기 
+5. **공부한 후 포스트 성실히 올리기**
 
+깨닳은 점 :
+너무 꼼꼼히 하려다가 일주일걸린다 대충대충 일단 하자~~ 
 
+블로그 포스트랑 같이 작성하다가 이틀이나 걸렸다..   
+그만두고싶다.....
+하지만 포털사이트 등록까지 해내따아ㅏㅏ 블로그 시작준비를 마쳤다 ㅠㅠ   
+조금 뿌듯하다 ~,~ 
 
 ### references
 [참고 사이트1](http://jinyongjeong.github.io/2017/01/13/blog_make_searched/)   
