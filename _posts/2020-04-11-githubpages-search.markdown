@@ -19,9 +19,20 @@ category:  project1
 아래의 참고 블로그와 같이, 대표적인 포털 사이트 Google, Daum, Naver 와 같은 검색엔진에 등록해 보았습니다.
 
 ### 본론
-<blockquote>Step 1. 사이트맵(sitemap) 만들기</blockquote>
 
-<mark>sitemap.xml 은 웹사이트 내 모든 페이지의 목록을 나열한 파일로 책의 목차와 같은 역할</mark>   
+검색엔진에 등록하기에 앞서 검색 엔진이 웹사이트를 읽어가는 작업을 정상적으로 진행하기 위해서는 `sitemap.xml`(구글)과 `feed.xml`(네이버, 다음) 그리고  `robots.txt` 이 필요합니다.    
+따라서 두 파일을 작성하고 검색엔진에 등록하는 순서로 진행됩니다.
+
+1. sitemap.xml, feed.xml 작성
+2. robotx.txt 만들기
+3. 포털사이트에 등록하기
+
+`sitemap.xml` : 웹사이트 내 모든 페이지의 목록을 나열한 파일로 책의 목차와 같은 역할<br/>`robots.txt` : 검색 엔진 크롤러에서 사이트에 요청할 수 있거나 요청할 수 없는 페이지 설정하는 부분 및 제어하는 부분
+검색 로봇들에게 웹사이트의 사이트맵이 어디 있는지 알려주는 역할  
+
+<blockquote>Step 1. 사이트맵(sitemap), RSS feed 작성</blockquote>
+
+#### 사이트맵 작성
 
 **사이트맵은 페이지 정보를 포털사이트에 알리는 역할**을 합니다.        
 그러므로 사이트맵을 만들어서 Google에 등록을 해두면 Google에서 주기적으로 Web상에 있는 contents를 수집합니다.   즉, 제 블로그를 등록하면 제 블로그를 수집합니다.   그럼 구글에 관련 검색어로 색인이 되고, 구글링시 제 글을 찾아볼 수 있겠죠!?! 야호 신난당   
@@ -67,8 +78,88 @@ url: "https://swimminghwang.github.io"
 {% endhighlight %}
 
 
+`블로그주소/sitemap.xml`을 입력하면 아래의 이미지처럼 본인의 블로그 사이트 맵을 볼 수 있습니다.    
+
+![img](http://swimminghwang.github.io/img/sitemap.png){: width="600" height="400"}
+
+#### Rss feed 작성
+
+<p><execode>Todo : 루트 디렉터리에 `feed.xml` 을 생성한 후, 아래의 코드를 삽입</execode></p> 
+{% highlight xml%}
+{% raw %}
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:30 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
+{% endraw %}
+{% endhighlight %}
+
+<blockquote>Step 2. robots.txt 만들기 </blockquote>
+
+초반에 설명했듯, `robots.txt` 파일에 `sitemap.xml` 파일의 위치를 등록해 두면 검색엔진의 크롤러들이 크롤링을 하든데 있어서 도움을 준다. 
+<p><execode>Todo : 루트 디렉터리에 `robots.txt` 을 생성한 후, 아래의 코드를 삽입</execode></p> 
+{% highlight xml %}
+<!--허용할 검색엔진 명
+User-agent : Googlebot   
+User-agent : NaverBot
+-->
+User-agent: *    
+Allow: / 
+<!-- 크롤링이 되지 않았으면 하는 페이지가 있다면
+Disallow: /pagename/   
+-->
+Sitemap: https://본인의 블로그 주소/sitemap.xml
+{% endhighlight %}
+
+<blockquote>Step 3. 포털사이트에 등록하기</blockquote>
+
+**1. 구글**   
+[Google Search Console](https://search.google.com/search-console/about?hl=ko&utm_source=wmx&utm_medium=wmx-welcome)
+도메인 말고 URL 접두어를 선택하여 블로그 주소를 입력하면 됩니다.   
+Google 애널리틱스를 적용해두었더니 소유권이 자동으로 확인되었습니다.   
+적용하지 않았다면 [Google 애널리틱스 적용하기](https://swimminghwang.github.io/project1/2020/04/08/githubpages-ga/) 를 참고하여 적용하거나 [참고 블로그](https://honbabzone.com/jekyll/start-gitHubBlog/#step-9-%EA%B5%AC%EA%B8%80-%EA%B2%80%EC%83%89-%EA%B0%80%EB%8A%A5%ED%95%98%EA%B2%8C-%ED%95%98%EA%B8%B0) 를 통해 소유권 확인 과정을 거치시면 됩니다.   
+
+다시 [Google Search Console](https://search.google.com/search-console/about?hl=ko&utm_source=wmx&utm_medium=wmx-welcome) 에 접속하여 좌측에 Sitemaps 버튼을 눌러 `sitemap.xml`을 입력하여 등록하면 됩니다. 
+![gsc](https://swimmingHwang.github.io/img/gsc.png)
+
+
+**2. Naver**   
+[Naver Search Advisor](https://searchadvisor.naver.com/)
+
+**3. Daum**   
+[]
+
+
 
 ### 결론
+
+
 
 ### references
 [참고 사이트1](http://jinyongjeong.github.io/2017/01/13/blog_make_searched/)   
