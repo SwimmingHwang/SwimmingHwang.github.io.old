@@ -1,0 +1,136 @@
+---
+layout:     post
+title:      모두의 딥러닝 - Lecture 01 Lab 정리
+author:     Soo-young Hwang
+tags: 		Deep-Learning
+subtitle:  	Lec00 - Machine / Deep Learning 수업의 개요와 일정
+category:  project1
+---
+
+pip install --update tensorflow
+```
+ERROR: Cannot uninstall 'wrapt'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+```
+https://github.com/tensorflow/tensorflow/issues/30191
+
+```
+conda update --all
+하니까 
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.6.14
+  latest version: 4.8.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+모르고 무시하고 
+
+
+pip install tensorflow
+```
+하니까 
+안 돼서
+
+```
+conda update wrapt
+```
+함 
+
+```
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.6.14
+  latest version: 4.8.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /anaconda3
+
+  added / updated specs:
+    - wrapt
+
+
+The following packages will be UPDATED:
+
+  ca-certificates                              2018.03.07-0 --> 2020.1.1-0
+  certifi                                 2018.11.29-py37_0 --> 2020.4.5.1-py37_0
+  openssl                                 1.1.1a-h1de35cc_0 --> 1.1.1f-h1de35cc_0
+  wrapt                              1.10.11-py37h1de35cc_2 --> 1.12.1-py37h1de35cc_1
+
+
+Proceed ([y]/n)? y
+
+
+```
+
+```
+Preparing transaction: done
+Verifying transaction: failed
+
+RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
+conda's operating environment.
+```
+또 에러나서 
+### 
+`conda update -n base -c defaults conda`
+Downloading and Extracting Packages
+conda-package-handli | 1.4 MB    | ########################## | 100% 
+urllib3-1.25.8       | 165 KB    | ########################## | 100% 
+conda-4.8.3          | 3.0 MB    | ########################## | 100% 
+cryptography-2.8     | 581 KB    | ########################## | 100% 
+requests-2.23.0      | 91 KB     | ########################## | 100% 
+pyopenssl-19.1.0     | 87 KB     | ########################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+
+내생각 conda update --all 보다 
+저 명령어가 리얼 콘다 업데이트인듯
+
+
+### => 
+https://github.com/conda/conda/issues/8149
+Doing 'conda update conda' before it worked for me
+conda version : 4.6.2
+
+
+
+콘다 업데이트 (리얼로) 다시하고 (conda update -n base -c defaults conda)
+`conda update wrapt `
+다시 해 봄
+다시 
+`pip install tensorflow`
+제발제발제바렞발제발ㅈ발제발빨간거생기지마랏ㅇ로앙
+Installing collected packages: tensorflow
+Successfully installed tensorflow-2.1.0
+➜  ~ 
+꺅 성공 ㅜ
+
+근데 2.1.0 이 설치가 되었다
+---
+tensorflow가 2.0버전으로 올라가면서, 더이상 Session모듈을 지원하지 않게되었습니다.
+설치 오류가 아닙니다. 아래와같이 코드를 작성하시면 Session사용 가능합니다.
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+---
+라고 하네요 
+
+강의르 따라가기 위해선 1.x.x 가 필요했다 그래서..
+`pip install tensorflow==1.14`
+로 다운그레이드했다
+
+
+<blockquote>
+<strong>딥러닝 공부 환경 세팅</strong><br>     
+OS :  macOS 10.14 Mojave<br>    
+python version : 3.7.1<br>    
+tensorflow : 1.14.0    
+</blockquote>
