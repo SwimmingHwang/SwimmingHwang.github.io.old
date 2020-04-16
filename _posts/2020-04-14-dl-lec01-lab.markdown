@@ -1,43 +1,59 @@
 ---
 layout:     post
-title:      모두의 딥러닝 - Lecture 01 Lab 정리
+title:      모두의 딥러닝 - Lecture 01 Lab 정리 (1)
 author:     Soo-young Hwang
 tags: 		Deep-Learning
-subtitle:  	Lec00 - Machine / Deep Learning 수업의 개요와 일정
+subtitle:  	Lec01 lab(1) - TensorFlow란? & TensorFlow 설치하기
 category:  project1
 ---
 
-pip install --update tensorflow
+
+### 서론
+이번 포스트는 [Lab 1 TensorFlow Basics](https://youtu.be/-57Ne86Ia8w) 강의를 듣고 정리했습니다. (1부에요, 2부가 있답니다)    
+이번에 강의를 들으면서 **텐서플로우의 기초**에 대해서 공부했습니다.   
+**Tensorflow란 무엇인지 간단한 설명 후 tensowflow 설치 과정**을 기술했습니다.   
+tensorflow 설치는 python이 설치되어있다는 가정 하에 진행됩니다.    
+
+강의시간은 약 20분이지만 tensorflow 설치부터 막혀서 약 60분 정도 걸려서 강의를 들었습니다ㅠ_ㅠ
+
+
+
+### 본론
+
+<blockquote> TensorFlow 란? </blockquote>
+
+**`TensorFlow`** 는   
+-  An open-source software library for Machine Intelligence,   
+지능형 머신을 위한 오픈소스 라이브러리이다.    
+- **`Data Flow Graphs`를 사용하는 `Numerical Computation`를 위한 오픈소스라이브러리**     
+
+`Data Flow Graph`란?
+- `Nodes` in the graph represent mathematical opterations.    
+그래프에 있는 `노드`라는 것들은 수학적 연산을 나타낸다. 
+- `Edges` represent the multidimensional data arrays(tensors) communicated between them.   
+`간선`은 노드들 사이에서 서로 소통(연산) 하는 다차원 배열 데이터를 나타낸다.
+
+<br>
+<blockquote> Installing TensorFlow </blockquote>
+
+```
+(sudo -H) pip install --upgrade tensorflow
+```
+로 하면 된다고 강의노트엔 쓰여 있었지만,,,   
+저는 버전문제로 시행착오를 많이 겪었습니다.
+
+#### 1.  Anaconda version issue
+
+제가 `anaconda`로 `python`을 설치했었거든요, 그래서 conda끼리 버전이 안 맞았나봐요.   
+pip install을  했더니 아래의 에러가 나면서 설치가 되지 않았습니다.   
 ```
 ERROR: Cannot uninstall 'wrapt'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
 ```
-https://github.com/tensorflow/tensorflow/issues/30191
-
+구글링 해 보니, [링크](https://github.com/tensorflow/tensorflow/issues/30191)에서 아래의 명령어를 실행하라고 했습니다.   
 ```
 conda update --all
-하니까 
-
-==> WARNING: A newer version of conda exists. <==
-  current version: 4.6.14
-  latest version: 4.8.3
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-모르고 무시하고 
-
-
-pip install tensorflow
 ```
-하니까 
-안 돼서
-
-```
-conda update wrapt
-```
-함 
-
+하라고 해서 했는데 (위의 명령어는 conda all packages가 update되는 명령어)   
 ```
 ==> WARNING: A newer version of conda exists. <==
   current version: 4.6.14
@@ -47,39 +63,16 @@ Please update conda by running
 
     $ conda update -n base -c defaults conda
 
-
-
-## Package Plan ##
-
-  environment location: /anaconda3
-
-  added / updated specs:
-    - wrapt
-
-
-The following packages will be UPDATED:
-
-  ca-certificates                              2018.03.07-0 --> 2020.1.1-0
-  certifi                                 2018.11.29-py37_0 --> 2020.4.5.1-py37_0
-  openssl                                 1.1.1a-h1de35cc_0 --> 1.1.1f-h1de35cc_0
-  wrapt                              1.10.11-py37h1de35cc_2 --> 1.12.1-py37h1de35cc_1
-
-
-Proceed ([y]/n)? y
-
-
+    .
+    .
 ```
-
+저 명령어는 패키지들만 업데이트되고 `conda`는 업데이트가 되지 않았습니다.   
+경고에서 친절히 **패키지가 아닌 `conda`를 업데이트**하라는 경고가 떴습니다.   
+그래서 warning에 있는 명령어를 입력했습니다.   
 ```
-Preparing transaction: done
-Verifying transaction: failed
-
-RemoveError: 'setuptools' is a dependency of conda and cannot be removed from
-conda's operating environment.
+conda update -n base -c defaults conda
 ```
-또 에러나서 
-### 
-`conda update -n base -c defaults conda`
+```
 Downloading and Extracting Packages
 conda-package-handli | 1.4 MB    | ########################## | 100% 
 urllib3-1.25.8       | 165 KB    | ########################## | 100% 
@@ -90,42 +83,62 @@ pyopenssl-19.1.0     | 87 KB     | ########################## | 100%
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
+```
+라고 뜨면서 `Conda`가  ver4.8.3으로 업데이트 되었습니다. 야호!   
+이 후에 처음에 있었던 오류를 해결하기 위해
+```
+conda update wrapt
+```   
+위 명령어를 통해 `wrapt` 라이브러리를 업데이트 한 후, 
+```
+pip install tensorflow
+```
+하니 tensorflow가 잘 설치 되었습니다.   
+설치가 잘 되었는지 확인하기 위하여 임포트를 해 확인했습니다.    
+**설치 여부 확인 방법**은 아래와 같습니다.   
 
-내생각 conda update --all 보다 
-저 명령어가 리얼 콘다 업데이트인듯
+실행창(terminal or cmd)에 `python` 입력 후 
+```
+import tensorflow
+``` 
+명령어로 간단히 설치 여부를 확인할 수 있습니다.    
 
+#### 2. Tensorflow version downgrade
+두번째 시행착오는 tensorflow의 버전이었습니다.    
+설치된 tensorflow의 버전을 확인했습니다.   
 
-### => 
-https://github.com/conda/conda/issues/8149
-Doing 'conda update conda' before it worked for me
-conda version : 4.6.2
+{% highlight python %}
+import tensorflow as tf
+tf.__version__
+{% endhighlight %}
 
+당연히 현재 배포중인 2.1.0 이 설치가 되었습니다.    
+하지만, 강의자료가 다 tensorflow ver1.0으로 진행되었기 때문에 수업에 원할이 따라가기 위해 다운그레이드가 필요했습니다.   
 
+```
+pip install tensorflow==1.14
+```
 
-콘다 업데이트 (리얼로) 다시하고 (conda update -n base -c defaults conda)
-`conda update wrapt `
-다시 해 봄
-다시 
-`pip install tensorflow`
-제발제발제바렞발제발ㅈ발제발빨간거생기지마랏ㅇ로앙
-Installing collected packages: tensorflow
-Successfully installed tensorflow-2.1.0
-➜  ~ 
-꺅 성공 ㅜ
-
-근데 2.1.0 이 설치가 되었다
----
-tensorflow가 2.0버전으로 올라가면서, 더이상 Session모듈을 지원하지 않게되었습니다.
-설치 오류가 아닙니다. 아래와같이 코드를 작성하시면 Session사용 가능합니다.
-
+**참고!**   
+tensorflow가 2.0버전으로 올라가면서, 더이상 Session모듈을 지원하지 않게되었습니다.   
+설치 오류가 아닙니다. 아래와같이 코드를 작성하시면 Session사용 가능합니다.   
+{% highlight python %}
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
----
-라고 하네요 
+{% endhighlight %}
+이밖에 달라진 점 -> [링크](https://mc.ai/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0-2-0%EC%97%90%EC%84%9C-%EB%8B%AC%EB%9D%BC%EC%A7%80%EB%8A%94-%EC%A0%90/)
 
-강의르 따라가기 위해선 1.x.x 가 필요했다 그래서..
-`pip install tensorflow==1.14`
-로 다운그레이드했다
+
+### 결론
+너무너무 힘들게 tensorflow 설치를 완료했습니다.   
+아니야 잘했어 흑흑     
+아직 실습내용이 남아있지만 글이 길어질 것 같아서 1부와 2부로 나눴습니다.   
+**2부에선 간단한 예제와 실습이 있답니다 듁흔**    
+그럼 안녕~~   
+2부에서 봐욤~~
+
+### References
+[모두를 위한 머신러닝/딥러닝 강의](https://hunkim.github.io/ml/)
 
 
 <blockquote>
