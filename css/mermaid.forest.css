@@ -1,6 +1,14 @@
 /* Flowchart variables */
 /* Sequence Diagram variables */
 /* Gantt chart variables */
+ output_data_text{
+  font-family: monospace;
+  margin-left: 2% !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  color: #000000  !important;
+  font-size: 1em !important;
+}
 .mermaid .label {
   font-family: 'trebuchet ms', verdana, arial;
   color: #333;

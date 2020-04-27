@@ -6,15 +6,16 @@ tags: 		Deep-Learning
 subtitle:  	Lec01 lab(2) - TensorFlow 
 category:  project1
 
-notebookfilename: dl-lab01-lab     
+notebookfilename: dl-lec01-lab     
 visualworkflow: true
 
 ---
 
 
 ### 서론
-이번 포스트는 [Lab 1 TensorFlow Basics](https://youtu.be/-57Ne86Ia8w) 강의를 듣고 정리했습니다. (2부에요, 1부는 [여기](https://swimminghwang.github.io/project1/2020/04/14/dl-lec01-lab/))     
-이번에 강의를 들으면서 **텐서플로우의 기초**에 이어 간단한 **tensorflow 실습**을 `jupyter notebook` 파일로 기술했습니다.   
+이번 포스트는 지난 포스트 **Installing TensorFlow**에 이어 `tensorflow`기초를 공부했습니다.   
+전과 동일하게, [Lab 1 TensorFlow Basics](https://youtu.be/-57Ne86Ia8w) 강의를 듣고 정리했습니다. (2부에요, 1부는 [여기](https://swimminghwang.github.io/project1/2020/04/14/dl-lec01-lab/))     
+**텐서플로우의 기초**에 이어 간단한 **tensorflow 실습**을 `jupyter notebook` 파일로 기술했습니다.   
 
 
 ### 본론
