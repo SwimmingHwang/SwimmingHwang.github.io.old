@@ -284,19 +284,17 @@ end
 <!-- Finalize Capture -->
 {% endcapture %}
 
-<!-- Make the Graph -->
-<h1> Workflow Overview </h1>
 
-<!-- Strip HTML and Seperate at Line Breaks -->
+<!-- Strip HTML and Seperate at Line Breaks
 {% assign Blocks = MermaidBlock | strip_html | newline_to_br | split:"<br />" %}
-{% assign BlocksLength = Blocks | size %}
+{% assign BlocksLength = Blocks | size %} -->
 
 <!-- Strip Each Line of Whitespace and Only Keep Lines Longer than 3 -->
-<div class="mermaid" id="mermaidworkflow" style="margin-left:100px">
+<!-- <div class="mermaid" id="mermaidworkflow" style="margin-left:100px">
 {% for line in (0..BlocksLength) %}{% assign BlockSize = Blocks[line] | size %}{% if BlockSize > 3 %}
 {{ Blocks[line] | strip | strip_newlines }}
 {% endif %}{% endfor %}
-</div>
+</div> -->
 {% endif %}
 
 {{ Notebook | markdownify }}
