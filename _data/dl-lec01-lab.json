@@ -1,6 +1,13 @@
 {
  "cells": [
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### TensorFlow version 확인하기"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 21,
    "metadata": {},
@@ -30,7 +37,26 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Hello TensorFlow!"
+    "<blockquote> TensorFlow Mechanics </blockquote>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "1. Build Graph using TensorFlow operations    \n",
+    "그래프를 빌드   \n",
+    "2. feed data and run graph (operation)   \n",
+    "sess.run(op)   \n",
+    "그래프를 실행   \n",
+    "3. update variables in the graph (and return values)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Hello TensorFlow! 출력하기"
    ]
   },
   {
@@ -99,11 +125,10 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "여기서 'b' 는 Bytes literals를 가리킨다.    \n",
-    "The Python 3 documentation states:\n",
-    "\n",
-    "Bytes literals are always prefixed with 'b' or 'B'; they produce an instance of the bytes type instead of the str type.    \n",
-    "They may only contain ASCII characters; bytes with a numeric value of 128 or greater must be expressed with escapes."
+    "- 여기서 'b' 는`Bytes literals`를 가리킨다.    \n",
+    "    The Python 3 documentation states:\n",
+    "    Bytes literals are always prefixed with 'b' or 'B'; they produce an instance of the bytes type instead of the str type.    \n",
+    "    They may only contain ASCII characters; bytes with a numeric value of 128 or greater must be expressed with escapes."
    ]
   },
   {
@@ -112,12 +137,12 @@
     "scrolled": true
    },
    "source": [
-    "## Computational Graph"
+    "#### Computational Graph"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 45,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -131,22 +156,22 @@
    "metadata": {},
    "source": [
     "상수 노드 생성, 더하기 노드 생성   \n",
-    "*Data Flow Graph에서    \n",
-    "`Nodes` in the graph represent mathematical opterations.\n",
+    "**Data Flow Graph**에서    \n",
+    "`Nodes` in the graph represent mathematical opterations.   \n",
     "그래프에 있는 노드라는 것들은 수학적 연산을 나타낸다."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 47,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "node1: Tensor(\"Const_5:0\", shape=(), dtype=float32) node2: Tensor(\"Const_6:0\", shape=(), dtype=float32)\n",
-      "node3: Tensor(\"Add:0\", shape=(), dtype=float32)\n"
+      "node1: Tensor(\"Const_7:0\", shape=(), dtype=float32) node2: Tensor(\"Const_8:0\", shape=(), dtype=float32)\n",
+      "node3: Tensor(\"Add_3:0\", shape=(), dtype=float32)\n"
      ]
     }
    ],
@@ -157,7 +182,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 48,
    "metadata": {},
    "outputs": [
     {
@@ -187,26 +212,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## TensorFlow Mechanics"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "1. Build Graph using TensorFlow operations    \n",
-    "그래프를 빌드   \n",
-    "2. feed data and run graph (operation)   \n",
-    "sess.run(op)   \n",
-    "그래프를 실행   \n",
-    "3. update variables in the graph (and return values)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Placeholder\n",
+    "#### Placeholder\n",
     "\n"
    ]
   },
@@ -255,23 +261,23 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Everything is Tensor"
+    "#### Everything is Tensor"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Ranks   \n",
-    "Shapes   \n",
-    "Types   "
+    "1. Ranks   \n",
+    "2. Shapes   \n",
+    "3. Types   "
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Rank"
+    "##### Rank"
    ]
   },
   {
@@ -314,7 +320,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Shape"
+    "##### Shape"
    ]
   },
   {
@@ -343,7 +349,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Type"
+    "##### Type"
    ]
   },
   {
@@ -363,16 +369,25 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## 정리"
+    "### 결론"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "tensorflow는 아래의 과정을 통해 실행됩니다. \n",
     "1. 그래프를 먼저 그린다\n",
     "2. 그래프에 값을 줘서 실행시킨다.\n",
     "3. 그래프에서 변수를 업데이트한다."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### References\n",
+    "[모두를 위한 머신러닝/딥러닝 강의](https://hunkim.github.io/ml/)"
    ]
   },
   {

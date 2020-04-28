@@ -16,7 +16,7 @@ Program Language : python
 #### 2. Experience 
 
 2016.03 ~ 2020.02 세종대학교 디지털콘텐츠학과   
-2019.07 ~ PIXEL Display Inc. 연구개발부 재직중
+2019.04 ~ 2020.04 PIXEL Display Inc. 연구개발부 
 
 
 #### 3. Project

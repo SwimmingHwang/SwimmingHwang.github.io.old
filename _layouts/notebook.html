@@ -171,7 +171,7 @@ layout: default
 {% endhighlight %}
 
 {% for output in cell.outputs  %}
-<output_data_text>{{output.text}}</output_data_text>
+<output_data_text>{{output.text }}</output_data_text>
 {% for outputitem in output.data %}
 
 {% if outputitem[0] contains "image/" %}
