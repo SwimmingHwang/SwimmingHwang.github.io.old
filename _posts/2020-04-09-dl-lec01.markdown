@@ -1,0 +1,72 @@
+---
+layout:     post
+title:      모두의 딥러닝 - Lecture 01 정리
+author:     Soo-young Hwang
+tags: 		Deep-Learning
+subtitle:  	Lec01 - Machine Learning Basics  머신러닝의 기초
+category:  project1
+---
+
+### 서론
+[모두의 딥러닝](https://hunkim.github.io/ml/) Lecture 01 을 듣고 추가로 공부를 하면서  정리하였습니다.   
+Lectur 01의 주제는 **머신러닝의 기초** 입니다.   
+- [인공지능 > 머신러닝 > 인공신경망 > 딥러닝](https://brunch.co.kr/@gdhan/10)   
+- 위 포스트를 참고하여 기술했습니다.     
+**인공지능**은 사람의 지능을 모방하여 사람이 하는 것과 같이 복잡한 일을 할 수 있는 기계를 만드는 것을 말한다.   
+인공지능이 가장 넓은 개념이고, 인공지능을 구현하는 방법 중 중요한 방법이 **기계학습** 또는 **머신러닝(Machine Learning)**이다.    
+**딥러닝(Deep Learning**)은 머신러닝의 여러 방법 중 중요한 방법론이며 **인공신경망(Artificial Neural Network)**의 한 종류이다. 즉, 인공지능 > 머신러닝 > 인공신경망 > 딥러닝 관계가 성립한다.
+    
+
+
+
+### 본론
+
+#### 강의 요약
+
+- What is ML?
+- What is learning?
+    - supervised
+    - unsupervised 
+- What is regression? (Next)
+- What is clssification? (Next)
+
+#### 내용
+
+<blockquote>Machine Learning</blockquote>    
+
+`머신러닝`이란 컴퓨터가 명시적으로 프로그램되지 않고도 학습할 수 있도록 하는 연구분야입니다.   
+- Limitations of explicit programming   
+    - Spam filter: many rules   
+    - Automatic driving: too many rules   
+- Machine learning: "Field of study that gives computers the ability to learn without being
+explicitly programmed” Arthur Samuel (1959)   
+
+
+<blockquote>Supervised / Unsupervised learning</blockquote>   
+
+- **Supervised learning**
+    - Learning with labeled examples    
+    Training Set(labeled examples)로 학습을 하는 것   
+    ex) cat-label1 , dog-label2 
+    - 머신러닝에서 대부분을 차지하고 있다. 
+    - Examples
+        - Image Labeling 이미지별로 표기된 태그로 학습
+        - Email spam filter 스팸인지 아닌지 학습
+        - Predicting exam score 지난 시험 결과로부터 시험 점수 예측
+    - Types
+        - Regression, ex) 시험 점수 예측
+        - Binary Classification, ex) Pass or Non-pass
+        - Multi-label Classification, ex)시간에 따른 Letter grade(A,B,C,E and F)
+- **Unsupervised learning: un-labeled data**
+    - Google news grouping
+    - Word clustering 
+
+### 결론
+3주 전에 강의 듣고 이제 정리했다....   
+~~포스트 순서를 위해 작성 날짜를 조작해따~~   
+그때그때 바로 기록하자!!!   
+앗 그리고 완강을 위해! 강의 계획,,?을 짜야겠다.  
+
+### References
+[참고 사이트 1 https://hunkim.github.io/ml/](https://hunkim.github.io/ml/)   
+[참고 사이트 2 https://brunch.co.kr/@gdhan/10](https://brunch.co.kr/@gdhan/10)
