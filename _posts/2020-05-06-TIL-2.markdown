@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      TIL) 정보처리기사 필기 - 1-2. 화면 설계 
+author:     Soo-young Hwang
+tags: 		TIL
+subtitle:  	Part 01.소프트웨어 Chapter 02.화면 설계
+category:  project1
+---
+### 서론   
+`정보처리기사` 필기 공부중 작성함.   
+NCS 정보처리 기사필기 책을 바탕으로 공부함.   
+책에 없는 내용을 정리하며 기록하였음.   
+
+### 정보처리기사 필기 - 책 외의 추가 개념정리
+#### Chapter 02 화면 설계
+<blockquote>SECTION 01. 화면 설계 능력 단위 정의</blockquote>
