@@ -1,0 +1,45 @@
+---
+layout:     post
+title:      모두의 딥러닝 - Lecture 02 정리
+author:     Soo-young Hwang
+tags: 		Deep-Learning
+subtitle:  	Lec02 - Linear Regression
+category:  project1
+---
+
+### 서론
+[모두의 딥러닝](https://hunkim.github.io/ml/) Lecture 02 을 듣고 추가로 공부를 하면서  정리하였습니다.    
+Lectur 02의 주제는 **Linear Regression** 입니다.   
+    
+### 본론
+
+#### 강의 요약
+
+- 
+
+#### 내용
+
+<blockquote>Linear Regression</blockquote>    
+
+`Regression` 은 **Supervised Learning**의 하나로 Training Set으로 학습을 한다.   
+
+![1](https://swimmingHwang.github.io/img/dllec02-1.png)   
+
+강의에서 간단한 예시로 설명을 한다.   
+위의 이미지에서 Table의 데이터를 학습(Train)시켜 모델을 생성한다면, `x`에 7을 넣으면 `65`라고 예측한다.   
+
+세상에 있는 많은 현상이 Linear한 형태를 가진다.   
+예를 들어, 훈련을 하는 시간이 많다면 좋은 성과를 낸다.  ..등   
+
+![2](https://swimmingHwang.github.io/img/dllec02-2.png)    
+`Regression` 에서 `H(x) = Wx + b`, 일차식 가설을 세우고 뭐가 더 좋은지 고르는 과정이 필요하다.   
+
+![3](https://swimmingHwang.github.io/img/dllec02-3.png) 
+![4](https://swimmingHwang.github.io/img/dllec02-4.png) 
+![5](https://swimmingHwang.github.io/img/dllec02-5.png) 
+
+### 결론
+
+
+### References
+[참고 사이트 1 https://hunkim.github.io/ml/](https://hunkim.github.io/ml/)   
