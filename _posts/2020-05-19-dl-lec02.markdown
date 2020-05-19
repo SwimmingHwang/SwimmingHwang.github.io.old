@@ -15,7 +15,8 @@ Lectur 02의 주제는 **Linear Regression** 입니다.
 
 #### 강의 요약
 
-- 
+- Linear Regression이란?
+- Linear Regression의 cost function(lost function)
 
 #### 내용
 
@@ -34,11 +35,20 @@ Lectur 02의 주제는 **Linear Regression** 입니다.
 ![2](https://swimmingHwang.github.io/img/dllec02-2.png)    
 `Regression` 에서 `H(x) = Wx + b`, 일차식 가설을 세우고 뭐가 더 좋은지 고르는 과정이 필요하다.   
 
-![3](https://swimmingHwang.github.io/img/dllec02-3.png) 
-![4](https://swimmingHwang.github.io/img/dllec02-4.png) 
-![5](https://swimmingHwang.github.io/img/dllec02-5.png) 
+![3](https://swimmingHwang.github.io/img/dllec02-3.png)   
+`Cost function`(lost function) 은 가설과 실제 데이터가 얼마나 다른가를 나타내준다.  
+`Linear Regression` 에서는 거리를 통해 구한다.   
+![4](https://swimmingHwang.github.io/img/dllec02-4.png)    
+`Linear Regression` 의 `cost function` 구하는 과정이다.   
+![5](https://swimmingHwang.github.io/img/dllec02-5.png)    
+`Linear Regression` 모델의 가설에 대한 목표는 `cost`를 최소화 하는 것 이다.
 
 ### 결론
+다음은 Linear Regression 실습을 다뤄보겠습니다.
+
+
+너무 오랜만에 머신러닝 공부를 했다...!
+좀더 자주 해야지~~!!!!
 
 
 ### References
