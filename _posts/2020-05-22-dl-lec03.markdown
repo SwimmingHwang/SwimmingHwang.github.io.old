@@ -49,12 +49,12 @@ b가 0이라고 했을 때, Cost 함수는
 Gradient : 경사   
 descent : 내려감  
 경사를 따라 내려가는 알고리즘   
-한국말로 경사하강법 이라고 불리운다.   
+한국말로 **경사하강법** 이라고 불리운다.   
 
 이 방법의 원리는 산 정상에서 골짜기로 가장 빠르게 내려오는 방법인 가장 경사가 가파른 길을 골라 내려오는 것과 같은,   
-최적화 알고리즘 중 하나이다.   
-<br>
-W가 어디서 시작하든 최종적으로 cost가 0인 1에 도달해야 한다.   
+**최적화 알고리즘** 중 하나이다.   
+
+**W가 어디서 시작하든 최종적으로 cost가 0인 1에 도달해야 한다.**   
 
 이 알고리즘은 어디서 출발하는 최저점에 도달하는게 장점이다.   
 W의 값에 조금씩 변화를 주면서 cost를 줄여나간다.   
@@ -66,13 +66,28 @@ W의 값에 조금씩 변화를 주면서 cost를 줄여나간다.
 ![4](https://swimmingHwang.github.io/img/dllec03-4.png)   
 ![5](https://swimmingHwang.github.io/img/dllec03-5.png)   
 
+`Gradient Desecent Algorithm`을 거쳐 `Linear Regression`은 Cost가 최소가 되는 W,b 의 값을 얻을 수 있다.   
 
+경사하강법, Gradient Desecent Algorithm은 볼록한 모양을 가진 함수에서 반드시 Optimal한 값이 하나 밖에 존재하지 않는다.   
+이러한 모양을 가진 함수를 `Convex Function`이라고 한다.   
 
+<blockquote>Convex Function</blockquote>
 
+`Convex Function`은 밥그릇처럼 생긴 함수이다.   
+항상 답을 찾을 수 있다는 보장을 해 주며, 
+`Linear Regression`을 할시 `Convex Function`인지 확인해야 한다.   
+
+![6](https://swimmingHwang.github.io/img/dllec03-6.png)   
+
+더 자세한 설명은 [이 링크](http://sanghyukchun.github.io/63/)를 참고하면 된다.   
 
 
 ### 결론
+학부때 경사하강법을 배웠는데 개념만 알았기에 어떤 원리인지 몰랐었다.   
+이제야 원리를 알게 되어서 불행중 다행이다.^,^   
 
+Convex Function에 대해 더 자세히 봐도 좋을 것 같다.   
+지금은 잘 이해를 못하겠다...ㅎㅎ   
 
 ### References
 [참고 사이트 1 https://hunkim.github.io/ml/](https://hunkim.github.io/ml/)   
