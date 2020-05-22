@@ -22,7 +22,53 @@ Linear Regression의 목표는 **`Cost function`이 최소가 되는 W,b의 값�
 
 <blockquote>How to minimize cost?</blockquote>    
 
+`Linear Regression` 의 Hypothesis는    
+<p><execode>H(x) = Wx + b</execode></p>
+b가 0이라고 했을 때, Cost 함수는   
+
+![2](https://swimmingHwang.github.io/img/dllec03-2.png)   
+이다. 
+
+`W`에 1, 0, 2 를 대입해 본 결과 아래 그래프처럼 그릴 수 있다.   
+
+![3](https://swimmingHwang.github.io/img/dllec03-3.png) 
+
+이 식에 더 많은 W의 값을 대입해 보면, 
+
 ![1](https://swimmingHwang.github.io/img/dllec03-1.png)   
+
+이 결과를 얻을 수 있다.   
+앞에 말했듯이 `Linear Regression`의 목표는 **Cost가 최소가 되는 W,b** 를 찾는 것이다.   
+여기선 b를 0이라고 했으니, W만 찾으면 된다.   
+사람이 봤을 땐, 바로 W가 1인 지점이 Cost 가 제일 작다는 것을 알 수 있다.   
+하지만 컴퓨터는 아니다.   
+그래서 필요한 것이 `Grdient descent algorithm`이다. 
+
+<blockquote>Gradient descent algorithm</blockquote>
+
+Gradient : 경사   
+descent : 내려감  
+경사를 따라 내려가는 알고리즘   
+한국말로 경사하강법 이라고 불리운다.   
+
+이 방법의 원리는 산 정상에서 골짜기로 가장 빠르게 내려오는 방법인 가장 경사가 가파른 길을 골라 내려오는 것과 같은,   
+최적화 알고리즘 중 하나이다.   
+<br>
+W가 어디서 시작하든 최종적으로 cost가 0인 1에 도달해야 한다.   
+
+이 알고리즘은 어디서 출발하는 최저점에 도달하는게 장점이다.   
+W의 값에 조금씩 변화를 주면서 cost를 줄여나간다.   
+이 과정을 반복하여 최저점에 도달하는 과정으로 작동한다.   
+
+경사도를 사용하기에 미분이 필요하다.   
+공식의 정의는 아래와 같다.   
+
+![4](https://swimmingHwang.github.io/img/dllec03-4.png)   
+![5](https://swimmingHwang.github.io/img/dllec03-5.png)   
+
+
+
+
 
 
 ### 결론
