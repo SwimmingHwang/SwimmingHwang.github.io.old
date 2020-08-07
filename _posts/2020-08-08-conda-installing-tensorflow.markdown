@@ -102,7 +102,9 @@ Installed kernelspec tf in C:\\Users\\Hwang\\AppData\\Roaming\\jupyter\\kernels\
 {% endhighlight %} 
 
 `jupyter notebook` 을 bash에 입력하여 실행한 후 파일을 생성하기 위해 `new`키를 누르면 새로운 커널이 생성된 것을 볼 수 있다.   
-![1]((https://swimmingHwang.github.io/img/jupyter-tensorflow.png)
+
+![1](https://swimmingHwang.github.io/img/jupyter-tensorflow.png)   
+
 
 <blockquote>
 <strong>딥러닝 공부 환경 세팅</strong><br>     
