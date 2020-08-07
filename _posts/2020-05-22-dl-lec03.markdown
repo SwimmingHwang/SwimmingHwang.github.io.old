@@ -13,7 +13,7 @@ Lectur 03의 주제는 **How to minimize cost** 입니다.
     
 ### 본론
 
-[지난 포스트](http://localhost:4000/project1/2020/05/19/dl-lec02/)에서 `Linear Regression`이 뭔지, 그리고 `Linear Regression`의 `cost function`을 배웠습니다.   
+[지난 포스트](http://swimminghwang.github.io/project1/2020/05/19/dl-lec02/)에서 `Linear Regression`이 뭔지, 그리고 `Linear Regression`의 `cost function`을 배웠습니다.   
 Cost function은 가설과 실제 데이터가 얼마나 다른가를 나타냅니다.   
 Linear Regression의 목표는 **`Cost function`이 최소가 되는 W,b의 값을 구하는 것** 입니다.   
 이번 포스트에선 **Cost를 최소화하는 방법에 대한 개요**를 다뤘습니다.   
