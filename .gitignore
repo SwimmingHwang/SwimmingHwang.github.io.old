@@ -5,3 +5,4 @@ Gemfile*
 .jekyll-cache/*
  _ipynbs/.ipynb_checkpoints/*
 _ipynbs/* 
+_ipynbs/

@@ -1,0 +1,484 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"   \\n'2.1.0'   \\n\""
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "tf.__version__   \n",
+    "'''   \n",
+    "\n",
+    "'2.1.0'   \n",
+    "\n",
+    "'''   "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Lab 3 Minimizing Cost"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import tensorflow as tf\n",
+    "import matplotlib.pyplot as plt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "X_train = [1, 2, 3, 4]\n",
+    "y_train = [0, -1, -2, -3]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Sequential 모델\n",
+    "케라스에서는 **층(layer)을 조합해 모델(model)**을 만든다.   \n",
+    "`model`은 (일반적으로) `layer`의 `graph`이다.   \n",
+    "가장 흔한 모델 구조로는 층을 차례대로 쌓은 `tf.keras.Sequential` 모델이다.   "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- `tf.keras.Sequential()` : 층을 쌓은 모델 구조   \n",
+    "    Linear stack of layers.\n",
+    "- `tf.model.add()` : 모델에 layer추가하기   \n",
+    "    Adds a layer instance on top of the layer stack.\n",
+    "- `units` : 양의 정수이며 출력 공간의 차원    \n",
+    "    Positive integer, dimensionality of the output space."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tf.model = tf.keras.Sequential()   \n",
+    "# 1개의 유닛을 가진 완전 연결 layer을 모델에 추가   \n",
+    "\n",
+    "tf.model.add(tf.keras.layers.Dense(units=1,input_dim=1))   "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Train 준비\n",
+    "모델을 구성한 후 `compile()`메서드를 호출하여 학습과정을 설정한다.   \n",
+    "Configures the model for training.\n",
+    "- `optimizer` : **훈련 과정을 설정**함 tf.keras.optimizers.Adam이나\n",
+    "tf.keras.optimizers.SGD와 같은 tf.keras.optimizers 아래의 옵티마이저 객체를 전달함. 기본 매개변수를 사용할 경우 'adam'이나 'sgd'와 같이 문자열로 지정할 수도 있음. \n",
+    "    - `SGD(Stochastic Gradient Descent)`는 배치 크기가 1인 경사하강법 알고리즘   \n",
+    "        확률적 경사하강법은 데이터 세트에서 무작위로 균일하게 선택한 하나의 예를 의존하여 각 단계의 예측 경사를 계산한다.   \n",
+    "        경사하강법에서 배치크기(batch-size) : 단일 반복에서 기울기를 계산하는 데 사용하는 데이터의 총 개수   \n",
+    "- `loss` : **최적화 과정에서 최소화될 손실 함수(loss function)를 설정**함. 평균 제곱 오차(mse)와 categorical_crossentropy, binary_crossentropy 등이 자주 사용됨. 손실 함수의 이름을 지정하거나 tf.keras.losses 모듈의 호출 가능한 객체(loss function)를 전달할 수 있음.\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 옵티마이저로 SGD 확률적 경사하강법   \n",
+    "\n",
+    "# lr(learning-rate) 0.1 단위로 W와 cost를 계산함   \n",
+    "\n",
+    "sgd = tf.keras.optimizers.SGD(lr=0.1)   \n",
+    "# loss function으로는 평균 제곱 오차 MSE로 설정함   \n",
+    "\n",
+    "tf.model.compile(optimizer=sgd, loss='mse')   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Model: \"sequential\"\n",
+      "_________________________________________________________________\n",
+      "Layer (type)                 Output Shape              Param #   \n",
+      "=================================================================\n",
+      "dense (Dense)                (None, 1)                 2         \n",
+      "=================================================================\n",
+      "Total params: 2\n",
+      "Trainable params: 2\n",
+      "Non-trainable params: 0\n",
+      "_________________________________________________________________\n"
+     ]
+    }
+   ],
+   "source": [
+    "tf.model.summary()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Train\n",
+    "모델은 `fit()` 메서드를 통해서 훈련 데이터를 학습함. \n",
+    "- `fit()` : fit()함수는 모델을 훈련시키고 훈련 과정을 보여준다.   \n",
+    "    trains the model and returns history of train   \n",
+    "- `epochs` 는 전체 데이터를 학습시킨 횟수를 의미한다.\n",
+    "- `batch_size` : 넘파이 데이터를 전달하면 모델은 데이터를 작은 배치로 나누고 훈련 과정에서 이 배치를 순회함.    \n",
+    "    이 정수 값은 배치의 크기를 지정함.    \n",
+    "- 1 epoch : **모든 데이터 셋을 한 번 학습**  \n",
+    "    1 iteration : **1회 학습**   \n",
+    "    - 전체 데이터가 2000개 epochs=20, batch_size=500이면    \n",
+    "        2000개의 데이터를 20번 학습시키는데 batch_size(500)로 쪼개어 학습을 시킴.   - 1 epoch은 각 데이터의 size가 500인 batch가 들어간 네 번의 iteration으로 나눠짐.  \n",
+    "        iteration을 기준으로 총 80(20epochs * 4 iteration)번의 학습이 이루어짐. \n",
+    "    - 메모리의 한계와 속도 저하 때문에 대부분의 경우 한 번의 에폭에서 모든 데이터를 한꺼번에 집어넣을 수는 없음\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Train on 4 samples\n",
+      "Epoch 1/100\n",
+      "4/4 [==============================] - 0s 116ms/sample - loss: 5.9712\n",
+      "Epoch 2/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.7247\n",
+      "Epoch 3/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 1.2645\n",
+      "Epoch 4/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.6065\n",
+      "Epoch 5/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.3088\n",
+      "Epoch 6/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.1729\n",
+      "Epoch 7/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.1099\n",
+      "Epoch 8/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0797\n",
+      "Epoch 9/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0644\n",
+      "Epoch 10/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0558\n",
+      "Epoch 11/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0504\n",
+      "Epoch 12/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0464\n",
+      "Epoch 13/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0433\n",
+      "Epoch 14/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0405\n",
+      "Epoch 15/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0381\n",
+      "Epoch 16/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0358\n",
+      "Epoch 17/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0336\n",
+      "Epoch 18/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0316\n",
+      "Epoch 19/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0298\n",
+      "Epoch 20/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0280\n",
+      "Epoch 21/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0264\n",
+      "Epoch 22/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0248\n",
+      "Epoch 23/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0233\n",
+      "Epoch 24/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0220\n",
+      "Epoch 25/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0207\n",
+      "Epoch 26/100\n",
+      "4/4 [==============================] - 0s 4ms/sample - loss: 0.0195\n",
+      "Epoch 27/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0183\n",
+      "Epoch 28/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0172\n",
+      "Epoch 29/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0162\n",
+      "Epoch 30/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0153\n",
+      "Epoch 31/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0144\n",
+      "Epoch 32/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0135\n",
+      "Epoch 33/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0127\n",
+      "Epoch 34/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0120\n",
+      "Epoch 35/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0113\n",
+      "Epoch 36/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0106\n",
+      "Epoch 37/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0100\n",
+      "Epoch 38/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0094\n",
+      "Epoch 39/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0088\n",
+      "Epoch 40/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0083\n",
+      "Epoch 41/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0078\n",
+      "Epoch 42/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0074\n",
+      "Epoch 43/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0069\n",
+      "Epoch 44/100\n",
+      "4/4 [==============================] - 0s 4ms/sample - loss: 0.0065\n",
+      "Epoch 45/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0061\n",
+      "Epoch 46/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0058\n",
+      "Epoch 47/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0054\n",
+      "Epoch 48/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0051\n",
+      "Epoch 49/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0048\n",
+      "Epoch 50/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0045\n",
+      "Epoch 51/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0043\n",
+      "Epoch 52/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0040\n",
+      "Epoch 53/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0038\n",
+      "Epoch 54/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0035\n",
+      "Epoch 55/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0033\n",
+      "Epoch 56/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0031\n",
+      "Epoch 57/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0030\n",
+      "Epoch 58/100\n",
+      "4/4 [==============================] - 0s 3ms/sample - loss: 0.0028\n",
+      "Epoch 59/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0026\n",
+      "Epoch 60/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0025\n",
+      "Epoch 61/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0023\n",
+      "Epoch 62/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0022\n",
+      "Epoch 63/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0021\n",
+      "Epoch 64/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0019\n",
+      "Epoch 65/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0018\n",
+      "Epoch 66/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0017\n",
+      "Epoch 67/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0016\n",
+      "Epoch 68/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0015\n",
+      "Epoch 69/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0014\n",
+      "Epoch 70/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0013\n",
+      "Epoch 71/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0013\n",
+      "Epoch 72/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0012\n",
+      "Epoch 73/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0011\n",
+      "Epoch 74/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 0.0011\n",
+      "Epoch 75/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 9.8933e-04\n",
+      "Epoch 76/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 9.3098e-04\n",
+      "Epoch 77/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 8.7606e-04\n",
+      "Epoch 78/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 8.2439e-04\n",
+      "Epoch 79/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 7.7577e-04\n",
+      "Epoch 80/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 7.3001e-04\n",
+      "Epoch 81/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 6.8695e-04\n",
+      "Epoch 82/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 6.4644e-04\n",
+      "Epoch 83/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 6.0831e-04\n",
+      "Epoch 84/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 5.7243e-04\n",
+      "Epoch 85/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 5.3867e-04\n",
+      "Epoch 86/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 5.0690e-04\n",
+      "Epoch 87/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 4.7700e-04\n",
+      "Epoch 88/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 4.4886e-04\n",
+      "Epoch 89/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 4.2239e-04\n",
+      "Epoch 90/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 3.9748e-04\n",
+      "Epoch 91/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 3.7403e-04\n",
+      "Epoch 92/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 3.5197e-04\n",
+      "Epoch 93/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 3.3121e-04\n",
+      "Epoch 94/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 3.1168e-04\n",
+      "Epoch 95/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.9329e-04\n",
+      "Epoch 96/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.7599e-04\n",
+      "Epoch 97/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.5971e-04\n",
+      "Epoch 98/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.4440e-04\n",
+      "Epoch 99/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.2998e-04\n",
+      "Epoch 100/100\n",
+      "4/4 [==============================] - 0s 2ms/sample - loss: 2.1642e-04\n"
+     ]
+    }
+   ],
+   "source": [
+    "history = tf.model.fit(X_train, y_train, epochs=100)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 예측\n",
+    "`tf.keras.Model.predict()` 메서드는 numpy array나 tf.data.Dataset을 사용할 수 있으며 주어진 데이터로 추론 모드에서 **마지막 layer의 출력을 예측하여 numpy array로 반환**함."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[-4.740018 ],\n",
+       "       [-3.7920144]], dtype=float32)"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 모델의 input으로 5와 4를 각각 넣음   \n",
+    "\n",
+    "y_predict = tf.model.predict(np.array([5, 4]))   \n",
+    "# 5를 넣으면 -4, 4를 넣으면 -3 을 예측함   \n",
+    "\n",
+    "y_predict   "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Plot training & validation loss values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plt.plot(history.history['loss'])\n",
+    "plt.title('Model loss')\n",
+    "plt.ylabel('Loss')\n",
+    "plt.xlabel('Epoch')\n",
+    "plt.legend(['Train', 'Test'], loc='upper left')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 출처\n",
+    "[tensorflow.blog](https://tensorflow.blog/2019/03/06/tensorflow-2-0-keras-api-overview/)   \n",
+    "[SGD 개념](https://everyday-deeplearning.tistory.com/entry/SGD-Stochastic-Gradient-Descent-%ED%99%95%EB%A5%A0%EC%A0%81-%EA%B2%BD%EC%82%AC%ED%95%98%EA%B0%95%EB%B2%95)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Tensorflow-CPU",
+   "language": "python",
+   "name": "tf"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
