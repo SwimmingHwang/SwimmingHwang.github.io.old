@@ -6,9 +6,6 @@ tags: 		TIL
 subtitle:   TensorFlow Install
 category:  project1
 
-notebookfilename: dl-lec03-lab     
-visualworkflow: true
-
 ---
 
 
