@@ -1,0 +1,37 @@
+---
+layout:     post
+title:      모두의 딥러닝 - Lecture 04 정리
+author:     Soo-young Hwang
+tags: 		Deep-Learning
+subtitle:  	Lec04 - Multivariable Linear Regression
+category:  project1
+---
+
+### 서론
+[모두의 딥러닝](https://hunkim.github.io/ml/) Lecture 04 을 듣고 추가로 공부를 하면서 정리했다.       
+Lectur 04의 주제는 **Multivariable Linear Regression** 이다.   
+    
+### 본론
+
+[지난 포스트](http://swimminghwang.github.io/project1/2020/05/22/dl-lec03/)에서 **Cost를 최소화하는 방법** 중 `Grdient descent algorithm`에 대해 다룬다.   
+4강에서는 **Multivariable Linear Regression** 를 공부했다.   
+Multivariable Linear Regression은 말 그대로 여러개의 변수에 대해 `y`를 예측하는 회귀 모델이다.   
+
+
+
+<blockquote>Multi-variable</blockquote>    
+
+
+<blockquote>Gradient descent algorithm</blockquote>
+
+
+![1](/img/dllec04-1.png)   
+
+<blockquote></blockquote>
+
+
+### 결론
+ 
+
+### References
+[참고 사이트 1 https://hunkim.github.io/ml/](https://hunkim.github.io/ml/)   
