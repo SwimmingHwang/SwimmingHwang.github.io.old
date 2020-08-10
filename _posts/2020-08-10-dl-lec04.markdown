@@ -14,24 +14,47 @@ Lectur 04의 주제는 **Multivariable Linear Regression** 이다.
 ### 본론
 
 [지난 포스트](http://swimminghwang.github.io/project1/2020/05/22/dl-lec03/)에서 **Cost를 최소화하는 방법** 중 `Grdient descent algorithm`에 대해 다룬다.   
-4강에서는 **Multivariable Linear Regression** 를 공부했다.   
-Multivariable Linear Regression은 말 그대로 여러개의 변수에 대해 `y`를 예측하는 회귀 모델이다.   
+4강에서는 **Multivariable Linear Regression** 를 공부한다.   
+Multivariable Linear Regression은 말 그대로 **여러 개의 변수에 대해 `y`를 예측하는 회귀 분석**이다.   
 
 
 
-<blockquote>Multi-variable</blockquote>    
+<blockquote>Multi-variable Linear Regression</blockquote>    
+![3](/img/dllec04-3.png)   
+이 표는 quiz점수 2개랑 중간고사 점수 그리고 기말고사 점수로 이루어져 있다.   
+`Multi-variable`은 이처럼 x1, x2, x3 3개의 input을 사용하는 것을 의미한다.   
+
+그렇다면 `Multi-variable Linear Regression`은 ?!   
+결과 변수(Y)가 2개 이상의 독립 변수(x1,x2,x3, ...)에 의해 예측되는 회귀 분석을 의미한다.   
+
+- `variable`은 `feature`와 혼용된다.   
 
 
-<blockquote>Gradient descent algorithm</blockquote>
+<blockquote>Hypothesis</blockquote>
+Linear Regression과 비슷한 Hypothesis를 가지고 있다.   
+![1](/img/dllec04-1.png)
+
+<blockquote>Cost function</blockquote>
+Cost function은 다음과 같다.   
+Linear Regression과 유사해서 이해하기 쉬웠다.   
+동일하게 예측값과 실제 값의 차에 대한 제곱의 평균을 최소화하는 함수이다.   
+
+![2](/img/dllec04-2.png)
+
+여기서 중요한 개념이 나온다.    
+변수의 수가 많아지고 데이터(instance)의 수가 많아진다면 가설 연산이 복잡해진다.   
+이 연산 과정에서 `matrix`를 사용하면 간단하게 할 수 있다.
+
+<blockquote>Matrix</blockquote>
+표현은 다음과 같고 벡터 표현식에 익숙해 질 필요가 있다.   
+![4](/img/dllec04-4.png)
+
+아래의 예시는 3개의 variable이 있고 데이터의 갯수는 `n`개 이다.   
+행 하나하나를 `instance`라고 부른다.   
+
+![5](/img/dllec04-5.png)
 
 
-![1](/img/dllec04-1.png)   
-
-<blockquote></blockquote>
-
-
-### 결론
- 
 
 ### References
 [참고 사이트 1 https://hunkim.github.io/ml/](https://hunkim.github.io/ml/)   
