@@ -6,3 +6,5 @@ Gemfile*
  _ipynbs/.ipynb_checkpoints/*
 _ipynbs/* 
 _ipynbs/
+trash/
+_ipynbs
