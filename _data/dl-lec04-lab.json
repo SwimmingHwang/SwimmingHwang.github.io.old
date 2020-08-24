@@ -4,7 +4,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Lab 4 Multi-variable linear regression\n",
+    "<blockquote>Lab 4 Multi-variable linear regression</blockquote>   \n",
+    "\n",
     "**여러 개의 변수**에 대해 **y**를 예측하는 회귀 분석"
    ]
   },
