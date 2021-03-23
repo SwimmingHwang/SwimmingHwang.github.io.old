@@ -2,14 +2,13 @@
 ---
 @import url(https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);//google web font added
 
-$header-color: {{ site.headercolor }};
 
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  color: $header-color;
+  color: #FFFFFF;
 }
 
 hr.small {
-  border-color: $header-color;
+  border-color: #FFFFFF;;
 }

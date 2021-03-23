@@ -8,3 +8,7 @@ _ipynbs/*
 _ipynbs/
 trash/
 _ipynbs
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
