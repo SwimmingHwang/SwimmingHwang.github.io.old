@@ -36,8 +36,8 @@ INSERT INTO table1 (col1, col2) VALUES
 위의 블로그를 참고하니 해결 방법은 2가지다.
 
 
-1. `Sequence`나 `Table`방식을 사용하면서 채번 부하를 낮추기
-2. `Spring Data JPA`(구현체 : Hibernate) 대신 `Spring Data JDBC` 사용하기 
+### 1. `Sequence`나 `Table`방식을 사용하면서 채번 부하를 낮추기
+### 2. `Spring Data JPA`(구현체 : Hibernate) 대신 `Spring Data JDBC` 사용하기 
 
 ​
 1번 방식이 이해가 잘 안가서 관련 내용을 더 찾아봤다.   

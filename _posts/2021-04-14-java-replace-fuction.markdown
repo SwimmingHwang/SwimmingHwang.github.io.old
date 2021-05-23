@@ -1,3 +1,12 @@
+---
+layout:     post
+title:      Java str.replaceAll과 str.replace의 차이점
+author:     Soo-young Hwang
+tags: 		JAVA
+subtitle:  	
+category:   project1
+---
+
 ### `str.replaceAll` 과 `str.replace` 의 차이점
 
 #### 결론
