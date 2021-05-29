@@ -10,11 +10,9 @@ category:   project1
 
 ### `Vue.js` `axios`를 이용한 `SpringBoot`로 이미지 파일 업로드하는 법
 - 코드만 기록했고 코드에 대한 간략한 설명만 기술함. 
-
-
-<br/>
 - 버전 : `vue.js` 2버전, `Spring boot` 2.3.4 버전
 
+</br>
 ### 코드
 
 #### 백엔드 (`Spring-boot`)
