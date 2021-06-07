@@ -83,7 +83,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #0085a1;
+  color: #da5b21;
 }
 a img:hover,
 a img:focus {
@@ -168,14 +168,14 @@ hr.small {
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085a1;
+    color: #da5b21;
   }
   .navbar-custom.is-fixed .nav li a {
     color: #404040;
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085a1;
+    color: #da5b21;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -264,9 +264,10 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #0085a1;
+  color: #da5b21;
 }
 .post-preview > a > .post-title {
+  color: #da5b21;
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
@@ -288,7 +289,7 @@ hr.small {
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
-  color: #0085a1;
+  color: #da5b21;
   text-decoration: underline;
 }
 @media only screen and (min-width: 768px) {
@@ -368,7 +369,7 @@ footer .copyright {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #0085a1;
+  color: #da5b21;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -388,8 +389,8 @@ form .row:first-child .floating-label-form-group {
 }
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #0085a1;
-  border: 1px solid #0085a1;
+  background-color: #da5b21;
+  border: 1px solid #da5b21;
   color: white;
 }
 .pager {
@@ -416,8 +417,8 @@ form .row:first-child .floating-label-form-group {
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #0085a1;
-  border: 1px solid #0085a1;
+  background-color: #da5b21;
+  border: 1px solid #da5b21;
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
@@ -430,7 +431,7 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: #0085a1;
+  background: #da5b21;
 }
 ::selection {
   color: white;
@@ -446,7 +447,7 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  webkit-tap-highlight-color: #0085a1;
+  webkit-tap-highlight-color: #da5b21;
 }
 
 div.notepad-index-post-tags {
