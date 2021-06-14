@@ -4,7 +4,7 @@ title:      Vue.js의 axios를 이용한 SpringBoot로 이미지 파일 업로�
 author:     Soo-young Hwang
 tags: 		Spring-Boot Vue.js 
 subtitle:  	
-category:   project1
+category:   study
 ---
 
 

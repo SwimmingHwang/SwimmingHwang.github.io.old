@@ -4,7 +4,7 @@ title:      Spring Boot 와 JPA - Bulk Insert 하는 법
 author:     Soo-young Hwang
 tags: 		JPA Spring-Boot
 subtitle:  	JPA의 기본키 생성 전략, JPA에서 Bulk Insert하는 법
-category:   project1
+category:   study
 ---
 
 

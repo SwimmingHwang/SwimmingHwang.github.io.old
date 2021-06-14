@@ -4,7 +4,7 @@ title:      Effective Java 3/E 9장. 일반적인 프로그래밍 원칙
 author:     Soo-young Hwang
 tags: 		JAVA
 subtitle:  	아이템57. 지역변수의 범위를 최소화하라
-category:   project1
+category:   study
 ---
 
 

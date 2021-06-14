@@ -4,7 +4,7 @@ title:      프로그래머스) 위장 - 해시
 author:     Soo-young Hwang
 tags: 		Coding-test
 subtitle:   Hash Table 
-category:  project1
+category:  study
 ---
 
 <blockquote>문제</blockquote>
@@ -65,7 +65,7 @@ def solution(clothes):
 {% endhighlight %}
 
 2) `collections` 모듈의 `Counter` 클래스 사용 
-- `collections`모듈의 `Counter`클래스는 파이썬의 기본 자료구조인 `dictionary`를 확장하고 있기 때문에, 딕셔너리에서 제공하는 API를 그대로 사용할 수 있다.([지난 문제에서도 사용](https://swimminghwang.github.io/project1/2020/06/29/ct-001/))
+- `collections`모듈의 `Counter`클래스는 파이썬의 기본 자료구조인 `dictionary`를 확장하고 있기 때문에, 딕셔너리에서 제공하는 API를 그대로 사용할 수 있다.([지난 문제에서도 사용](https://swimminghwang.github.io/study/2020/06/29/ct-001/))
 
 {% highlight python %}
 

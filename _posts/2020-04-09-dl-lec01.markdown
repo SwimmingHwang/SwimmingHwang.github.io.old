@@ -4,7 +4,7 @@ title:      모두의 딥러닝 - Lecture 01 정리
 author:     Soo-young Hwang
 tags: 		Deep-Learning
 subtitle:  	Lec01 - Machine Learning Basics  머신러닝의 기초
-category:  project1
+category:  study
 ---
 
 ### 서론

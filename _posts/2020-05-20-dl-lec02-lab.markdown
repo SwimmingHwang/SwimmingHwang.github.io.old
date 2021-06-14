@@ -4,7 +4,7 @@ title:      모두의 딥러닝 - Lecture 02 Lab 정리
 author:     Soo-young Hwang
 tags: 		Deep-Learning
 subtitle:  	Lec02 lab - Linear Regression 실습
-category:  project1
+category:  study
 
 notebookfilename: dl-lec02-lab     
 visualworkflow: true
@@ -13,7 +13,7 @@ visualworkflow: true
 
 
 ### 서론
-이번 포스트는 [지난 포스트](https://swimminghwang.github.io/project1/2020/05/19/dl-lec02)에 이어 `Linear Regression` 이론을 바탕으로 실습을 했습니다.    
+이번 포스트는 [지난 포스트](https://swimminghwang.github.io/study/2020/05/19/dl-lec02)에 이어 `Linear Regression` 이론을 바탕으로 실습을 했습니다.    
 `TensorFlow`로 간단한 **`Linear Regression`**을 구현했습니다.      
 전과 동일하게, [Lab 2 Linear Regression](https://www.youtube.com/watch?v=mQGwjrStQgg&feature=youtu.be) 강의를 듣고 정리했습니다.       
 

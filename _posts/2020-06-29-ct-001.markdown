@@ -4,7 +4,7 @@ title:      프로그래머스) 완주하지 못한 선수 - 해시
 author:     Soo-young Hwang
 tags: 		Coding-test
 subtitle:   Hash Table 
-category:  project1
+category:  study
 ---
 
 <blockquote>문제</blockquote>

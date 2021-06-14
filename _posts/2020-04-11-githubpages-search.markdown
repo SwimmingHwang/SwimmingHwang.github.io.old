@@ -4,11 +4,11 @@ title:      github blog를 검색엔진에서 검색되도록 설정하기
 author:     Soo-young Hwang
 tags: 		Github-pages
 # subtitle:  	
-category:  project1
+category:  study
 ---
 
 ### 서론
-[지난 포스트](https://swimminghwang.github.io/project1/2020/04/08/githubpages-ga/)에서 내 블로그의 방문자 수 혹은 방문자 유입을 분석해주는 `Google Analytics`를 적용해 보았습니다.    
+[지난 포스트](https://swimminghwang.github.io/study/2020/04/08/githubpages-ga/)에서 내 블로그의 방문자 수 혹은 방문자 유입을 분석해주는 `Google Analytics`를 적용해 보았습니다.    
 `Github-pages`를 이용한 블로그는 포털사이트에 검색해도 안 나오더라구요...    
 따라서 검색 가능하게 등록을 직접 해 줘야 한답니다 ^ㅗ^    
 이번 포스트에선 **포털사이트에 검색했을 때 내 블로그가 나올 수 있도록 등록하는 과정**을 다뤄보았습니다.     
@@ -141,7 +141,7 @@ Sitemap: https://본인의 블로그 주소/sitemap.xml
 Google 애널리틱스를 적용해두었더니 소유권이 자동으로 확인되었습니다.   
 
 ![gs2](https://swimmingHwang.github.io/img/gs2.png){: width="300" height="300"}   
-적용하지 않았다면 [Google 애널리틱스 적용하기](https://swimminghwang.github.io/project1/2020/04/08/githubpages-ga/) 를 참고하여 적용하거나 [참고 블로그](https://honbabzone.com/jekyll/start-gitHubBlog/#step-9-%EA%B5%AC%EA%B8%80-%EA%B2%80%EC%83%89-%EA%B0%80%EB%8A%A5%ED%95%98%EA%B2%8C-%ED%95%98%EA%B8%B0) 를 통해 소유권 확인 과정을 거치시면 됩니다.     
+적용하지 않았다면 [Google 애널리틱스 적용하기](https://swimminghwang.github.io/study/2020/04/08/githubpages-ga/) 를 참고하여 적용하거나 [참고 블로그](https://honbabzone.com/jekyll/start-gitHubBlog/#step-9-%EA%B5%AC%EA%B8%80-%EA%B2%80%EC%83%89-%EA%B0%80%EB%8A%A5%ED%95%98%EA%B2%8C-%ED%95%98%EA%B8%B0) 를 통해 소유권 확인 과정을 거치시면 됩니다.     
 다시 [Google Search Console](https://search.google.com/search-console/about?hl=ko&utm_source=wmx&utm_medium=wmx-welcome) 에 접속하여 좌측에 Sitemaps 버튼을 눌러 `sitemap.xml`을 입력하여 등록하면 됩니다.    
 
 ![gsc](https://swimmingHwang.github.io/img/gsc.png)

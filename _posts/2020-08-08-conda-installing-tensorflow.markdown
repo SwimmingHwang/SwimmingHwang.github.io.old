@@ -4,7 +4,7 @@ title:      conda로 tensorflow 설치하기 (windows 10)
 author:     Soo-young Hwang
 tags: 		TIL
 subtitle:   TensorFlow Install
-category:  project1
+category:  study
 
 ---
 

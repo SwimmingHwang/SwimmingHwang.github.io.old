@@ -4,7 +4,7 @@ title:      모두의 딥러닝 - Lecture 01 Lab 정리 (1)
 author:     Soo-young Hwang
 tags: 		Deep-Learning
 subtitle:  	Lec01 lab(1) - TensorFlow란? & TensorFlow 설치하기
-category:  project1
+category:  study
 ---
 
 

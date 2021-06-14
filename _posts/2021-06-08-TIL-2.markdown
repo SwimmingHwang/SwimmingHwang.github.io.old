@@ -4,7 +4,7 @@ title:      javascript 에서 zip  → spring boot multipart file unzip
 author:     Soo-young Hwang
 tags: 		JSZip 
 subtitle:  	
-category:   project1
+category:   study
 ---
 
 #### 라이브러리 github

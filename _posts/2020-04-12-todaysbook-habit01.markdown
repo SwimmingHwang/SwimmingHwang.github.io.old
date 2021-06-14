@@ -4,7 +4,7 @@ title:      "[책] 행동하는 습관 (1)"
 author:     Soo-young Hwang
 tags: 		Books
 # subtitle:  	
-category:  project1
+category:  study
 ---
 
 ### 서론

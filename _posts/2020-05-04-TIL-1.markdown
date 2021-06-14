@@ -4,7 +4,7 @@ title:      TIL) 정보처리기사 필기 - 1-1. 요구사항 확인
 author:     Soo-young Hwang
 tags: 		TIL
 subtitle:  	Part 01.소프트웨어 Chapter 01.요구사항 확인
-category:  project1
+category:  study
 ---
 ### 서론   
 `정보처리기사` 필기 공부중 작성함.   

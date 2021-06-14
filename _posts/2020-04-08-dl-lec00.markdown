@@ -4,7 +4,7 @@ title:      모두의 딥러닝 - Lecture 00 정리
 author:     Soo-young Hwang
 tags: 		Deep-Learning
 subtitle:  	Lec00 - Machine / Deep Learning 수업의 개요와 일정
-category:  project1
+category:  study
 ---
 
 ### 서론
