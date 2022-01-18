@@ -11,13 +11,13 @@ category:   study
 
 #### 결론
 
-str.replaceAll(정규식, 바꾸려는 문자열)
+`str.replaceAll(정규식, 바꾸려는 문자열)`
 
 ```java
 public String replaceAll(String regex, String replacement)
 ```
 
-str.replace(바뀌게 되는 문자열, 바꾸려는 문자열)
+`str.replace(바뀌게 되는 문자열 target, 바꾸려는 문자열)`
 
 ```java
 public String replace(CharSequence target, CharSequence replacement)
@@ -39,9 +39,13 @@ public class replaceFuncDemo {
     System.out.println(str); // 황  김 이
 
     str = "황수영 수영 김수 이수";
-    str = str.replaceAll("[수영]","");
+    str = str.replaceAll("[수영]",""); // "수", "영" 을 제거해줌 
     System.out.println(str); // 황  김 이
     
+    str = "황수영 수영 김수 이수";
+    str = str.replaceAll("[수 영]",""); // "수" "영" " " 제거
+    System.out.println(str); // 황김이
+
   }
 }
 ```
