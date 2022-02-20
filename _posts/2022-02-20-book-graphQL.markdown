@@ -275,8 +275,7 @@ GraphQL을 선택하는 가장 중요한 기술적 이유는 효율성이다. �
 
 #### 출처
 
-[https://graphql.org/](https://graphql.org/)   
-[https://tech.kakao.com/2019/08/01/graphql-basic/](https://tech.kakao.com/2019/08/01/graphql-basic/)
+[https://graphql.org/](https://graphql.org/)
 
 
 **한빛미디어 <나는 리뷰어다> 활동을 위해서 책을 제공받아 작성된 서평입니다.**
