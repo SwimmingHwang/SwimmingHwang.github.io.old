@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      pring REST Docs를 이용한 API 문서 자동화하기
+title:      Spring REST Docs를 이용한 API 문서 자동화하기
 author:     Soo-young Hwang
 tags: 		API-documentation 
 
@@ -196,7 +196,7 @@ public void 토큰발급() throws Exception {
 
 해당 테스트 실행 시  `target/generated-snippets`  에 adoc 파일이 생성되는 것을 볼 수 있다.
 
-![image-20220423180927199](SwimmingHwang.github.io/img/image-20220423180927199.png)
+![image-20220423180927199](https://swimmingHwang.github.io/img/image-20220423180927199.png)
 
 adoc 파일은 이렇게 생겼고,
 
@@ -267,7 +267,7 @@ operation::token-api[snippets='response-fields-data,response-body,http-response'
 
 이에 대한 결과물은 이렇다.
 
-![image-20220417-191743](SwimmingHwang.github.io/img/image-20220417-191743.png)
+![image-20220417-191743](https://swimmingHwang.github.io/img/image-20220417-191743.png)
 
 여기까지가 기본적으로 적용 및 결과물이다.
 
@@ -327,13 +327,13 @@ mustache 문법 중 `}}` 은 param이 비어있거나 false 일때 작동된다.
 
 
 
-![image-20220417-193942](SwimmingHwang.github.io/img/image-20220417-193942.png)
+![image-20220417-193942](https://swimmingHwang.github.io/img/image-20220417-193942.png)
 
 ### **2. 입력 포맷**
 
 API spec 상 날짜 형식을 입력받아야 한다. 날짜의 경우 String 으로 입력받고 날짜 형식은 다양할 수 있어 문서에 꼭 표기를 해 줘야 했다. 입력 포맷을 지정해 주는 것도 간단하다. `attributes()` 메소드를 이용해 추가 속성을 넣어줄 수 있다.  attributes에 `key("format").value("yyyyMMddHHmmss")`  를 각각 넣어줄 수 있지만 자주 사용하므로 static 메서드로 작성해 준다.
 
-```
+```java
 public interface DocumentFormatGenerator {
   static Attributes.Attribute getDateFormat() {
     return key("format").value("yyyyMMddHHmmss");
@@ -510,7 +510,7 @@ logApiResultAction
 
 ## 최종 결과물
 
-![image-20220417-185120](SwimmingHwang.github.io/img/image-20220417-185120.png)
+![image-20220417-185120](https://swimmingHwang.github.io/img/image-20220417-185120.png)
 
 ## 마무리
 
@@ -521,5 +521,7 @@ logApiResultAction
 ### **참고**
 
 - [Spring REST Docs](https://docs.spring.io/spring-restdocs/docs/current/reference/html5/)
-- [Spring Rest Docs 적용 | 우아한형제들 기술블로그](https://techblog.woowahan.com/2597/)
-- [Spring REST Docs에 날개를… (feat: Popup) | 우아한형제들 기술블로그](https://techblog.woowahan.com/2678/)
+  
+- [Spring Rest Docs 적용 - 우아한형제들 기술블로그](https://techblog.woowahan.com/2597/)
+  
+- [Spring REST Docs에 날개를… (feat: Popup) - 우아한형제들 기술블로그](https://techblog.woowahan.com/2678/)
