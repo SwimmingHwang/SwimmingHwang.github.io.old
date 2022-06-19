@@ -88,16 +88,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * 100만이니 1초 .. 시간초과 고려하기
- * 위 아래 인덱스 같으면 같이 ++ 다르면 위에만 ++
- * -> 다르면 si 무작정 ++ 이 아니라 비
- * 다르면 answer 0으로 초기화 같으면 ++
- *    p 카운트랑 같으면 answer return 1
- * 반례 :
- * aaaaab
- * aaab
- */
 public class B16916 {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
