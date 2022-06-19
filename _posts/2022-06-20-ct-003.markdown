@@ -1,0 +1,141 @@
+---
+layout:     post
+title:      백준 16916 부분문자열
+author:     Soo-young Hwang
+tags: 		Coding-test
+subtitle:   KMP 알고리즘
+category:  study
+---
+
+<blockquote>문제</blockquote>
+[부분 문자열](https://www.acmicpc.net/problem/16916)   
+
+사용 언어 : `java8`      
+개념 : KMP 알고리
+
+
+# B16916 KMP 문자열 검색 알고리즘
+
+### 시도했던 방법
+
+텍스트의 길이를 N, 패턴의 길이를 M 이라고 했을 때 각 텍스트의 인덱스에 대해 패턴이 일치하는 지 비교하는 방법으로 풀었으면 O(NM) 으로 최대 100만 * 100만이면 시간초과가 난다.
+
+### 해결법
+
+- 시간 복잡도가 O(N+M) KMP 알고리즘을 사용한다.
+    - 처음에 내가 구현했던 방법은 O(NM)
+- [KMP 알고리즘](https://bowbowbow.tistory.com/6)이란?
+    - 접두사와 접미사
+        - 접두사(prefix)
+
+            ```jsx
+            b
+            ba
+            ban
+            bana
+            banan
+            banana
+            ```
+
+        - 접미사(suffix)
+
+            ```jsx
+            a
+            na
+            ana
+            nana
+            anana
+            banana
+            ```
+
+    - Pi 배열
+        - 주어진 문자열의 0~i 까지의 부분 문자열 중에서 prefix == suffix가 될 수 있는 부분 문자열 중에서 가장 긴 것의 길이(이때 prefix가 0~i  까지의 부분 문자열과 같으면 안된다.)
+        - 예를 들어 ABAABAB 에서 pi 배열은
+            - A → 0
+            - AB → 0
+            - ABA → 1
+            - ABAA → 1
+            - ABA**AB** → 2
+            - ABA**ABA** → 3
+            - ABAAB**AB** → 2
+            - [0, 0, 1, 1, 2, 3, 2] 가 된다
+
+- 이 문제를 풀면서 aaaaab 와 aaab 반례를 통해 내 알고리즘으로는 불가능하다고 생각했었는데 이런 고민을 했었다.
+    - **ABCDABC**DABEE
+      **ABCDABC**E
+        - 단순한 방법에서는 밑줄 친 부분만 틀리고 **앞부분은 일치한다는 사실**을 사용하지 않는다.
+- 그럼 이를 어떻게 활용할 것인가
+    - 01 23 45 67
+      **ABCDABC**DABEE
+      **ABCDABE**
+    - 제일 첫번째 비교 후 (문제에 따르면 S 의 인덱스가 0, P의 인덱스가 0)
+      기존 단순한 방법에 따르면 S인덱스 1, P인덱스 다시 0 부터 비교를 하게 된다.
+      하지만 BCD 모두 틀릴 거라는걸 첫번째 비교에서 알 수 있었다 (ABCDAB까지 일치했던 사실을 알고 있으니까)
+        - ABCDABCDABEE → 틀림
+          ABCDABE
+            - 이 단계에서 패턴이 일치하려면 적어도 pi[5] = 5여야 한다.
+        - 건너뛰기.. pi[5] = 2 니까 여기까지 건너뛰기..
+        - ABCD**ABCDABEE** ← Pi[5] = 2 (**AB**CD**AB**)
+            - p[5] = 2라는 정보는 접미사 AB가 접두사 AB와 같다는 것을 말하므로 패턴 "ABCDABE"에서 "AB"는 이미 텍스트와 일치함을 알 수  있다. S의 인덱스 6부터 다시 비교를 시작한다.
+    - **이렇게 kmp 알고리즘은 틀렸다는 사실이 아니라 조금이라도 일치했었다는 정보에 주목하고 미리 전처리 해둔pi배열을 이용해서 많은 중간 시도를 껑충 건너띌 수 있게 합니다.**
+
+## 구현
+
+```java
+package study;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+ * 100만이니 1초 .. 시간초과 고려하기
+ * 위 아래 인덱스 같으면 같이 ++ 다르면 위에만 ++
+ * -> 다르면 si 무작정 ++ 이 아니라 비
+ * 다르면 answer 0으로 초기화 같으면 ++
+ *    p 카운트랑 같으면 answer return 1
+ * 반례 :
+ * aaaaab
+ * aaab
+ */
+public class B16916 {
+  public static void main(String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    System.out.print(KMP(br.readLine(), br.readLine()));
+  }
+
+  public static int[] getPi(String s1) {
+    int[] pi = new int[s1.length()];
+    int j = 0;
+    for(int i = 1; i < s1.length(); i++) {
+      while(j > 0 && s1.charAt(i) != s1.charAt(j)) {
+        j = pi[j - 1];
+      }
+      if(s1.charAt(i) == s1.charAt(j)) {
+        pi[i] = j += 1;
+      }
+    }
+    return pi;
+  }
+
+  public static int KMP(String s, String s1) {
+    int[] pi = getPi(s1);
+    int j = 0;
+    for(int i = 0; i < s.length(); i++) {
+      while(j > 0 && s.charAt(i) != s1.charAt(j)) {
+        j = pi[j - 1];
+      }
+      if(s.charAt(i) == s1.charAt(j)) {
+        if(j == s1.length() - 1) {
+          return 1;
+        }
+        else {
+          j++;
+        }
+      }
+    }
+    return 0;
+  }
+}
+
+```
