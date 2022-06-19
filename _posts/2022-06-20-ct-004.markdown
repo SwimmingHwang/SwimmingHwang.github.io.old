@@ -11,7 +11,7 @@ category:  study
 [부분 문자열](https://www.acmicpc.net/problem/16916)   
 
 사용 언어 : `java8`      
-개념 : KMP 알고리
+개념 : KMP 알고리즘
 
 
 # B16916 KMP 문자열 검색 알고리즘
