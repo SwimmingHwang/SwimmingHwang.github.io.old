@@ -202,7 +202,7 @@ adoc 파일은 이렇게 생겼고,
 
 [예시 http-request.adoc]
 
-```
+```text
 [source,http,options="nowrap"]
 ----
 POST /v1/token HTTP/1.1
@@ -220,7 +220,7 @@ Host: xxxxx-api.xxxxx.com:37000
 
 [예시 response-body.adoc]
 
-```
+```text
 [source,options="nowrap"]
 ----
 {
@@ -240,7 +240,7 @@ Host: xxxxx-api.xxxxx.com:37000
 
 이렇게 생성된 snippet 들을 모아 adoc 문서를 작성할 수 있다.아래는 토큰 발급 문서를 일부 발췌했다.
 
-```
+```text
 == 1. 토큰 발급
 
 `/v1/token`
@@ -291,7 +291,7 @@ Request 필드에 필수값 여부에 대해 표현을 하는 등 입력 포맷�
 
 [reqeust-fields.snippet]
 
-```
+```text
 |===
 |필드명|타입|필수여부|양식|설명
 
