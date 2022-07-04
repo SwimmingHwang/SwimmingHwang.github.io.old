@@ -60,7 +60,7 @@ url: "https://swimminghwang.github.io"
 
 google_fonts: "Nanum+Gothic:400,700"
 
-futrue: true
+future: true
 
 plugins: [jekyll-paginate]
 
