@@ -3,7 +3,7 @@ layout:     post
 title:      Java Problem Solving - Two pointer 
 author:     Soo-young Hwang
 tags: 		JAVA
-subtitle:  	Array가 사용된 문제 풀이
+subtitle:  	Two pointer 활용 문제 해결을 위한 알고리즘 기초
 category:   study
 published: true
 ---
