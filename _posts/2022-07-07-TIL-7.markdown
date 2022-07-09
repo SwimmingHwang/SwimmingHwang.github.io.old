@@ -33,6 +33,96 @@ published: true
 
 *만약에 리스트 내 원소에 음수 데이터가 포함되어 있는 경우에는 투 포인터 알고리즘으로 문제를 해결할 수 없다.
 
+```java
+package twopointers;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class 연속부분수열 {
+  private int solution1(int n, int m, int[] arr) {
+    int answer = 0, sum = 0, lt = 0;
+    for (int rt = 0; rt < n; rt++) { // 증가하고
+      sum += arr[rt]; // 더하고
+      if (sum == m) answer++; // 확인
+      while (sum >= m) {
+        sum -= arr[lt++];
+        if (sum == m) answer++; // 빼고나서도 다시 확인
+      }
+    }
+    return answer;
+  }
+
+  private int solution2(int n, int m, int[] arr){
+    int cnt = 0;
+    int intervalSum = 0;
+    int end = 0;
+
+    // start를 차례대로 증가시키며 반복
+    for (int start = 0; start < n; start++) {
+      // end를 가능한 만큼 이동시키기
+      while (intervalSum < m && end < n) {
+        intervalSum += arr[end];
+        end += 1;
+      }
+      // 부분합이 m일 때 카운트 증가
+      if (intervalSum == m) {
+        cnt += 1;
+      }
+      intervalSum -= arr[start];
+    }
+    return cnt;
+  }
+
+  /*
+  내가 푼 방법
+  - 반례 1 1 -> 1 : 바로 정답인 경우 케이스 추가 필요 -> 추가 함
+   */
+  private int solution(int n, int m, int[] arr) {
+    int answer = 0, sum = arr[0];
+    int start = 0, end = 0;
+
+    while (true) {
+      if (sum == m && (end == n-1 || start == n-1)){
+        answer++;
+        break;
+      }
+      if (sum < m && end == n - 1) break;
+      if (sum > m && start == n - 1) break;
+
+      if (sum == m) {
+        answer++;
+        sum = sum - arr[start++] + arr[++end];
+      } else if (sum < m) {
+        sum += arr[++end];
+      } else {
+        sum -= arr[start++];
+      }
+    }
+    return answer;
+  }
+
+  public static void main(String[] args) throws IOException {
+    연속부분수열 T = new 연속부분수열();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    StringTokenizer st = new StringTokenizer(br.readLine());
+
+    int n = Integer.parseInt(st.nextToken());
+    int m = Integer.parseInt(st.nextToken());
+
+    st = new StringTokenizer(br.readLine());
+    int[] arr = new int[n];
+    for (int i = 0; i < n; i++) {
+      arr[i] = Integer.parseInt(st.nextToken());
+    }
+    System.out.println(T.solution(n, m, arr));
+  }
+}
+```
+
+
 ### 문제2) 정렬되어 있는 두 리스트의 합집합
 
 *무조건 정렬이 되어 있어야 한다.
@@ -48,6 +138,60 @@ published: true
 => 단순히 각 리스트의 모든 원소를 한 번씩만 순회하면 되기 때문에
 
 이 알고리즘의 경우 병합 정렬과 같은 일부 알고리즘에서 사용되고 있다.
+
+```java
+package twopointers;
+
+import java.io.*;
+import java.util.*;
+
+public class 두배열합치기 {
+  public ArrayList<Integer> solution1(int n, int m, int[] a, int[] b){
+    ArrayList<Integer> answer = new ArrayList<>();
+    int p1=0, p2=0;
+    while(p1<n && p2<m){
+      if(a[p1]<b[p2]) answer.add(a[p1++]);
+      else answer.add(b[p2++]);
+    }
+    while(p1<n) answer.add(a[p1++]);
+    while(p2<m) answer.add(b[p2++]);
+    return answer;
+  }
+
+  public int[] solution(int n, int m, int[] arrA, int[] arrB) {
+    int[] answer = new int[n + m];
+    int ai = 0, bi = 0;
+    for (int i = 0; i < n + m; i++) {
+      if (ai >= n) answer[i] = arrB[bi++];
+      else if (bi >= m) answer[i] = arrA[ai++];
+      else if (arrA[ai] <= arrB[bi]) answer[i] = arrA[ai++];
+      else answer[i] = arrB[bi++];
+    }
+    return answer;
+  }
+
+  public static void main(String[] args) throws IOException {
+    두배열합치기 T = new 두배열합치기();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    int n = Integer.parseInt(br.readLine());
+    StringTokenizer st = new StringTokenizer(br.readLine());
+    int[] arrA = new int[n];
+    for (int i = 0; i < n; i++) {
+      arrA[i] = Integer.parseInt(st.nextToken());
+    }
+    int m = Integer.parseInt(br.readLine());
+    st = new StringTokenizer(br.readLine());
+    int[] arrB = new int[m];
+    for (int i = 0; i < m; i++) {
+      arrB[i] = Integer.parseInt(st.nextToken());
+    }
+    for (int x : T.solution(n, m, arrA, arrB)) {
+      System.out.print(x + " ");
+    }
+  }
+}
+
+```
 
 ### 문제3) 정렬되어 있는 두 리스트의 교집합
 
