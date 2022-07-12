@@ -265,3 +265,8 @@ public final class String
 
 객체의 비교(순서)를 정의하는 것은 반드시 알아두어야 할 내용 중 하나인데, 이번 포스트를 작성하면서 제대로 이해할 수 있었다.     
 특히 Comparable과 Comparator의 차이점 또한 명확하게 이해해 볼 수 있었다. 
+
+
+#### 참고사이트
+
+comparable과 comparator : [https://st-lab.tistory.com/243](https://st-lab.tistory.com/243)
